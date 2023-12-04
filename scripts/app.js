@@ -1,17 +1,31 @@
-
+import { apiKey } from "./hideKey.js";
 // "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + apiKey + "&units=imperial";
 
-let apiKey = '';
+
+let locationTxt = document.getElementById("locationTxt");
+let currentTempTxt = document.getElementById("currentTempTxt");
+let currentDescriptionTxt = document.getElementById("currentDescriptionTxt");
+let highLowTxt = document.getElementById("highLowTxt");
+
+
+
+
+
+
+
+
 let latitude = '37.961632';
 let longitude = '-121.275604';
 let units = '&units=imperial'
 let cnt = '5';
 
-
-
 let forecast0_High = "";
 let forecast0_Low = "";
 let forecast0_Description = "";
+
+
+
+
 
 
 
@@ -54,6 +68,7 @@ async function CurrentDay() {
     console.log(data.main.temp_min)
     console.log(data.name)
     console.log(data.weather[0].main)
+
 
 }
 
