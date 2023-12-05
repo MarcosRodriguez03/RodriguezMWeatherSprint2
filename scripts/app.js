@@ -7,13 +7,6 @@ let currentTempTxt = document.getElementById("currentTempTxt");
 let currentDescriptionTxt = document.getElementById("currentDescriptionTxt");
 let highLowTxt = document.getElementById("highLowTxt");
 
-
-
-
-
-
-
-
 let latitude = '37.961632';
 let longitude = '-121.275604';
 let units = '&units=imperial'
@@ -39,8 +32,9 @@ async function FiveDayForecast() {
 
     const data = await promise.json();
 
+    console.log(data);
     //main data
-    // console.log(data.list[0]);
+    console.log(data.list[0]);
 
 
     //date and uni code for data

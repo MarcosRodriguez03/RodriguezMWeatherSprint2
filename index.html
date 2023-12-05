@@ -8,29 +8,189 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./style/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <h1>working on api rn</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <p id="locationTxt"></p>
-                <p id="currentTempTxt"></p>
-                <p id="currentDescriptionTxt"></p>
-                <p id="highLowTxt"></p>
+
+    <div class="container-fluid padding1" style="background-color: white;">
+        <div class="row ">
+            <div class="col d-flex align-items-center">
+                <p class="navFont">climate.xchange</p>
             </div>
-            <div class="col"></div>
+            <div class="col d-flex align-items-center justify-content-end">
+                <input class=" me-3 customSearch px-3" type="search" placeholder="Search for a City">
+                <button type="button" class="btn purpleColor">
+                    <img src="./assets/Search.png" alt="search icon">
+
+                </button>
+            </div>
         </div>
-        <div class="row">
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
+    </div>
+
+
+    <div class="container-fluid padding mt-5">
+        <div class="row ">
+            <div class="col me-2 currentDay">
+                <div class="row">
+                    <div class="col">
+                        <p class="locationFont mb-0">Stockton</p>
+                    </div>
+                    <div class="col d-flex justify-content-end align-items-center"><img src="./assets/empty heart.png"
+                            style="height: 30px;" alt="heart icon">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center align-items-center">
+                        <img src="./assets/sunpng.png" style="width: 120px;" alt="weather icon">
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                        <p class="currentDayWeatherFont lh-1">54°F</p>
+                    </div>
+
+                </div>
+                <hr style="border-top: dotted 4px;" class="mx-4" />
+                <div class="row">
+                    <div class="col">
+                        <p class="currentDayDescFont">Cloudy</p>
+                    </div>
+                    <div class="col-6">
+                        <span class="d-flex flex-row justify-content-end">
+                            <p class="currentDayDescFont">H:</p>
+                            <p class="currentDayDescFont">72°F</p>
+                            <p class="currentDayDescFont">L:</p>
+                            <p class="currentDayDescFont">37°F</p>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col currentDay ms-2">
+                <div class="row">
+                    <div class="col currentDayOfTheWeekFont">Today</div>
+                    <div class="col currentDayOfTheWeekFont ">12:55pm</div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col d-flex flex-column align-items-center">
+                        <p class="eightAmFont">8am</p>
+                        <img src="./assets/sunpng.png" style="height: 75px;" alt="weather icon">
+                        <p class="eightAmWeatherFont">38°</p>
+                    </div>
+                    <div class="col d-flex flex-column align-items-center"
+                        style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
+
+                        <p class=" eightAmFont">8am</p>
+                        <img src="./assets/cloudypng.png" style="height: 75px;" alt="weather icon">
+                        <p class="eightAmWeatherFont">38°</p>
+
+                    </div>
+                    <div class="col d-flex flex-column align-items-center">
+                        <p class="eightAmFont">8am</p>
+                        <img src="./assets/moon.png" style="height: 75px;" alt="weather icon">
+                        <p class="eightAmWeatherFont">38°</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
+
+    <div class="container-fluid padding mt-3">
+        <div class="row">
+            <div class="col fiveDayForecast me-2 py-2">
+                <span class="d-flex flex-row d-flex justify-content-center mt-2">
+                    <p class="me-2 eightAmFont ">Mon</p>
+                    <p class=" eightAmFont">12/8</p>
+                </span>
+                <span class="d-flex justify-content-center mb-3">
+                    <img src="./assets/cloudy png.png" style="width: 60px; height: auto;" alt="weather icon">
+                </span>
+
+
+                <span class=" d-flex flex-row d-flex justify-content-center">
+                    <p style=" border-right:black solid;" class="eightAmFont pe-1">74°F</p>
+                    <p class="eightAmFont ps-1">34°F</p>
+                </span>
+            </div>
+
+            <div class="col fiveDayForecast me-2 ms-2 py-2">
+                <span class="d-flex flex-row d-flex justify-content-center mt-2">
+                    <p class="me-2 eightAmFont ">Mon</p>
+                    <p class=" eightAmFont">12/8</p>
+                </span>
+                <span class="d-flex justify-content-center mb-3">
+                    <img src="./assets/cloudy png.png" style="width: 60px; height: auto;" alt="weather icon">
+                </span>
+
+
+                <span class=" d-flex flex-row d-flex justify-content-center">
+                    <p style=" border-right:black solid;" class="eightAmFont pe-1">74°F</p>
+                    <p class="eightAmFont ps-1">34°F</p>
+                </span>
+            </div>
+
+            <div class="col fiveDayForecast me-2 py-2 ms-2">
+                <span class="d-flex flex-row d-flex justify-content-center mt-2">
+                    <p class="me-2 eightAmFont ">Mon</p>
+                    <p class=" eightAmFont">12/8</p>
+                </span>
+                <span class="d-flex justify-content-center mb-3">
+                    <img src="./assets/cloudy png.png" style="width: 60px; height: auto;" alt="weather icon">
+                </span>
+
+
+                <span class=" d-flex flex-row d-flex justify-content-center">
+                    <p style=" border-right:black solid;" class="eightAmFont pe-1">74°F</p>
+                    <p class="eightAmFont ps-1">34°F</p>
+                </span>
+            </div>
+
+            <div class="col fiveDayForecast me-2 ms-2 py-2">
+                <span class="d-flex flex-row d-flex justify-content-center mt-2">
+                    <p class="me-2 eightAmFont ">Mon</p>
+                    <p class=" eightAmFont">12/8</p>
+                </span>
+                <span class="d-flex justify-content-center mb-3">
+                    <img src="./assets/cloudy png.png" style="width: 60px; height: auto;" alt="weather icon">
+                </span>
+
+
+                <span class=" d-flex flex-row d-flex justify-content-center">
+                    <p style=" border-right:black solid;" class="eightAmFont pe-1">74°F</p>
+                    <p class="eightAmFont ps-1">34°F</p>
+                </span>
+            </div>
+
+            <div class="col fiveDayForecast ms-2 py-2">
+                <span class="d-flex flex-row d-flex justify-content-center mt-2">
+                    <p class="me-2 eightAmFont ">Mon</p>
+                    <p class=" eightAmFont">12/8</p>
+                </span>
+                <span class="d-flex justify-content-center mb-3">
+                    <img src="./assets/cloudy png.png" style="width: 60px; height: auto;" alt="weather icon">
+                </span>
+
+
+                <span class=" d-flex flex-row d-flex justify-content-center">
+                    <p style=" border-right:black solid;" class="eightAmFont pe-1">74°F</p>
+                    <p class="eightAmFont ps-1">34°F</p>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+        <button class="btn favBtn">
+            <p>Open Your Favorite Places</p>
+        </button>
+    </div>
+
 
 
 

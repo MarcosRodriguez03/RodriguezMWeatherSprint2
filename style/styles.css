@@ -1,3 +1,104 @@
 body {
-    background-color: gray;
+
+    background-image: linear-gradient(50deg, #98DDFC, #C8B1EB, #4A5EEF);
+
+
+    height: 1080px;
+    width: 1920px;
+
+}
+
+.customSearch {
+    border: none;
+    border-radius: 10px;
+    height: 45px;
+    width: 400px;
+    box-shadow: 2px 2px 10px rgb(187, 187, 187);
+
+
+}
+
+.purpleColor {
+    background-color: #BDB8F8;
+    border-radius: 10px;
+}
+
+.padding {
+    padding-left: 400px;
+    padding-right: 400px;
+}
+
+.padding1 {
+    padding-left: 385px;
+    padding-right: 385px;
+}
+
+.navFont {
+    font-size: 45px;
+    color: #707070;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.locationFont {
+    color: #454545;
+    font-size: 45px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.currentDay {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 30px;
+}
+
+
+
+.currentDayWeatherFont {
+    font-size: 130px;
+    color: #454545;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.currentDayDescFont {
+    font-size: 35px;
+    color: #454545;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.currentDayOfTheWeekFont {
+    font-size: 40px;
+    color: #454545;
+    font-family: 'Roboto', sans-serif;
+}
+
+.eightAmFont {
+    font-size: 25px;
+    color: #454545;
+    font-family: 'Roboto', sans-serif;
+}
+
+.eightAmWeatherFont {
+    font-size: 70px;
+    color: #454545;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.fiveDayForecast {
+    background-color: rgba(255, 255, 255, 0.389);
+    border-radius: 20px;
+
+}
+
+.favBtn {
+    background-color: rgba(255, 255, 255, 0.657);
+    border-radius: 25px;
+    width: 555px;
+}
+
+.favBtn p {
+
+    font-size: 20px;
+    margin-bottom: 0;
+    padding: 7px;
+    color: #707070;
 }
