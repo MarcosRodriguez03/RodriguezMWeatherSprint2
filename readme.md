@@ -1,9 +1,13 @@
 -Marcos Rodriguez
--12/5/2023
--mainly worked on my main layout
--went from nothing to having most of it set up
--got the fonts and icons from the design
+-12/6/2023
+-found a side bar option on bootstrap
+-got the highs and lows for the 5 day forcast
+-got the time for our time zone at least
+-search bar now works
 
+tmrw i want to display the days of the week
+maybe get day then select the first 3 indexes of the word 
 
+get the date too 
 
-tmrw I want to fix up my html and css and then get the search bar to work
+maybe change icons depending on the description

@@ -26,8 +26,8 @@
                 <p class="navFont">climate.xchange</p>
             </div>
             <div class="col d-flex align-items-center justify-content-end">
-                <input class=" me-3 customSearch px-3" type="search" placeholder="Search for a City">
-                <button type="button" class="btn purpleColor">
+                <input id="userInput" class=" me-3 customSearch px-3" type="search" placeholder="Search for a City">
+                <button id="enterBtn" type="button" class="btn purpleColor ">
                     <img src="./assets/Search.png" alt="search icon">
 
                 </button>
@@ -36,37 +36,48 @@
     </div>
 
 
+
+
+
+
+
+
+
+
+
+
     <div class="container-fluid padding mt-5">
         <div class="row ">
             <div class="col me-2 currentDay">
                 <div class="row">
                     <div class="col">
-                        <p class="locationFont mb-0">Stockton</p>
+                        <p id="showLocation" class="locationFont mb-0">Stockton</p>
                     </div>
-                    <div class="col d-flex justify-content-end align-items-center"><img src="./assets/empty heart.png"
-                            style="height: 30px;" alt="heart icon">
+                    <div class="col d-flex justify-content-end align-items-center"><img id="showHeartIcon"
+                            src="./assets/empty heart.png" style="height: 30px;" alt="heart icon">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col d-flex justify-content-center align-items-center">
-                        <img src="./assets/sunpng.png" style="width: 120px;" alt="weather icon">
+                        <img id="showCurrentWeatherIcon" src="./assets/sunpng.png" style="width: 120px;"
+                            alt="weather icon">
                     </div>
                     <div class="col d-flex justify-content-end">
-                        <p class="currentDayWeatherFont lh-1">54°F</p>
+                        <p id="showCurrentTemp" class="currentDayWeatherFont lh-1">54°F</p>
                     </div>
 
                 </div>
                 <hr style="border-top: dotted 4px;" class="mx-4" />
                 <div class="row">
                     <div class="col">
-                        <p class="currentDayDescFont">Cloudy</p>
+                        <p id="showCurrentDesc" class="currentDayDescFont">Cloudy</p>
                     </div>
                     <div class="col-6">
                         <span class="d-flex flex-row justify-content-end">
                             <p class="currentDayDescFont">H:</p>
-                            <p class="currentDayDescFont">72°F</p>
+                            <p id="showCurrentHigh" class="currentDayDescFont">72°F</p>
                             <p class="currentDayDescFont">L:</p>
-                            <p class="currentDayDescFont">37°F</p>
+                            <p id="showCurrentLow" class="currentDayDescFont">37°F</p>
                         </span>
                     </div>
                 </div>
@@ -75,7 +86,9 @@
             <div class="col currentDay ms-2">
                 <div class="row">
                     <div class="col currentDayOfTheWeekFont">Today</div>
-                    <div class="col currentDayOfTheWeekFont ">12:55pm</div>
+                    <div class="col  ">
+                        <p id="showCurrentTime" class="currentDayOfTheWeekFont">12:55pm</p>
+                    </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col d-flex flex-column align-items-center">
@@ -106,88 +119,113 @@
         <div class="row">
             <div class="col fiveDayForecast me-2 py-2">
                 <span class="d-flex flex-row d-flex justify-content-center mt-2">
-                    <p class="me-2 eightAmFont ">Mon</p>
-                    <p class=" eightAmFont">12/8</p>
+                    <p class="me-2 eightAmFont " id="showDay1">Mon</p>
+                    <p class=" eightAmFont" id="showDate1">12/8</p>
                 </span>
                 <span class="d-flex justify-content-center mb-3">
-                    <img src="./assets/cloudy png.png" style="width: 60px; height: auto;" alt="weather icon">
+                    <img id="showWeatherIconDay1" src="./assets/cloudy png.png" style="width: 60px; height: auto;"
+                        alt="weather icon">
                 </span>
 
 
                 <span class=" d-flex flex-row d-flex justify-content-center">
-                    <p style=" border-right:black solid;" class="eightAmFont pe-1">74°F</p>
-                    <p class="eightAmFont ps-1">34°F</p>
+                    <p style=" border-right:black solid;" class="eightAmFont pe-1" id="showDay1High">74°F</p>
+                    <p class="eightAmFont ps-1" id="showDay1Low">34°F</p>
                 </span>
             </div>
 
             <div class="col fiveDayForecast me-2 ms-2 py-2">
                 <span class="d-flex flex-row d-flex justify-content-center mt-2">
-                    <p class="me-2 eightAmFont ">Mon</p>
-                    <p class=" eightAmFont">12/8</p>
+                    <p class="me-2 eightAmFont " id="showDay2">Mon</p>
+                    <p class=" eightAmFont" id="showDate2">12/8</p>
                 </span>
                 <span class="d-flex justify-content-center mb-3">
-                    <img src="./assets/cloudy png.png" style="width: 60px; height: auto;" alt="weather icon">
+                    <img id="showWeatherIconDay2" src="./assets/cloudy png.png" style="width: 60px; height: auto;"
+                        alt="weather icon">
                 </span>
 
 
                 <span class=" d-flex flex-row d-flex justify-content-center">
-                    <p style=" border-right:black solid;" class="eightAmFont pe-1">74°F</p>
-                    <p class="eightAmFont ps-1">34°F</p>
+                    <p style=" border-right:black solid;" class="eightAmFont pe-1" id="showDay2High">74°F</p>
+                    <p class="eightAmFont ps-1" id="showDay2Low">34°F</p>
                 </span>
             </div>
 
             <div class="col fiveDayForecast me-2 py-2 ms-2">
                 <span class="d-flex flex-row d-flex justify-content-center mt-2">
-                    <p class="me-2 eightAmFont ">Mon</p>
-                    <p class=" eightAmFont">12/8</p>
+                    <p class="me-2 eightAmFont " id="showDay3">Mon</p>
+                    <p class=" eightAmFont" id="showDate3">12/8</p>
                 </span>
                 <span class="d-flex justify-content-center mb-3">
-                    <img src="./assets/cloudy png.png" style="width: 60px; height: auto;" alt="weather icon">
+                    <img id="showWeatherIconDay3" src="./assets/cloudy png.png" style="width: 60px; height: auto;"
+                        alt="weather icon">
                 </span>
 
 
                 <span class=" d-flex flex-row d-flex justify-content-center">
-                    <p style=" border-right:black solid;" class="eightAmFont pe-1">74°F</p>
-                    <p class="eightAmFont ps-1">34°F</p>
+                    <p style=" border-right:black solid;" class="eightAmFont pe-1" id="showDay3High">74°F</p>
+                    <p class="eightAmFont ps-1" id="showDay3Low">34°F</p>
                 </span>
             </div>
 
             <div class="col fiveDayForecast me-2 ms-2 py-2">
                 <span class="d-flex flex-row d-flex justify-content-center mt-2">
-                    <p class="me-2 eightAmFont ">Mon</p>
-                    <p class=" eightAmFont">12/8</p>
+                    <p class="me-2 eightAmFont " id="showDay4">Mon</p>
+                    <p class=" eightAmFont" id="showDate4">12/8</p>
                 </span>
                 <span class="d-flex justify-content-center mb-3">
-                    <img src="./assets/cloudy png.png" style="width: 60px; height: auto;" alt="weather icon">
+                    <img id="showWeatherIconDay4" src="./assets/cloudy png.png" style="width: 60px; height: auto;"
+                        alt="weather icon">
                 </span>
 
 
                 <span class=" d-flex flex-row d-flex justify-content-center">
-                    <p style=" border-right:black solid;" class="eightAmFont pe-1">74°F</p>
-                    <p class="eightAmFont ps-1">34°F</p>
+                    <p style=" border-right:black solid;" class="eightAmFont pe-1" id="showDay4High">74°F</p>
+                    <p class="eightAmFont ps-1" id="showDay4Low">34°F</p>
                 </span>
             </div>
 
             <div class="col fiveDayForecast ms-2 py-2">
                 <span class="d-flex flex-row d-flex justify-content-center mt-2">
-                    <p class="me-2 eightAmFont ">Mon</p>
-                    <p class=" eightAmFont">12/8</p>
+                    <p class="me-2 eightAmFont " id="showDay5">Mon</p>
+                    <p class=" eightAmFont" id="showDate5">12/8</p>
                 </span>
                 <span class="d-flex justify-content-center mb-3">
-                    <img src="./assets/cloudy png.png" style="width: 60px; height: auto;" alt="weather icon">
+                    <img id="showWeatherIconDay5" src="./assets/cloudy png.png" style="width: 60px; height: auto;"
+                        alt="weather icon">
                 </span>
 
 
                 <span class=" d-flex flex-row d-flex justify-content-center">
-                    <p style=" border-right:black solid;" class="eightAmFont pe-1">74°F</p>
-                    <p class="eightAmFont ps-1">34°F</p>
+                    <p style=" border-right:black solid;" class="eightAmFont pe-1" id="showDay5High">74°F</p>
+                    <p class="eightAmFont ps-1" id="showDay5Low">34°F</p>
                 </span>
             </div>
         </div>
     </div>
+
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Try scrolling the rest of the page to see this option in action.</p>
+            <div style="background-color: wheat;"> test</div>
+        </div>
+    </div>
+
+
+
+
     <div class="d-flex justify-content-center mt-4">
-        <button class="btn favBtn">
+        <button class="btn favBtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling">
             <p>Open Your Favorite Places</p>
+
+
+
         </button>
     </div>
 
