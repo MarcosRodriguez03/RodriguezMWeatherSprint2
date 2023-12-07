@@ -12,6 +12,7 @@ let showCurrentLow = document.getElementById("showCurrentLow")
 let showCurrentWeatherIcon = document.getElementById("showCurrentWeatherIcon")
 let showHeartIcon = document.getElementById("showHeartIcon")
 let showCurrentTime = document.getElementById("showCurrentTime");
+let injectFav = document.getElementById("injectFav")
 
 
 let showDay1 = document.getElementById("showDay1");
@@ -44,13 +45,104 @@ let showWeatherIconDay3 = document.getElementById("showWeatherIconDay3");
 let showWeatherIconDay4 = document.getElementById("showWeatherIconDay4");
 let showWeatherIconDay5 = document.getElementById("showWeatherIconDay5");
 
+//------------------------------------------------------------------------------------------------
+
+let favoriteArray = [];
+
+
+showHeartIcon.addEventListener('click', function () {
+
+    addToFavorite();
+
+})
+
+
+function addToFavorite() {
+    showHeartIcon.src = "./assets/full heart.png"
+    let favoriteInput = showlocation.innerHTML.toLowerCase();
+    console.log(favoriteInput)
+
+
+
+    if (favoriteArray.includes(favoriteInput)) {
+        console.log('already in fav')
+        console.log(favoriteArray)
+    } else {
+        favoriteArray.push(favoriteInput);
+
+        let div1 = document.createElement('div')
+        div1.className = "col-10"
+        let p = document.createElement("p")
+        p.innerText = favoriteInput
+        p.className = "createdPTag"
+        div1.appendChild(p)//-------
+
+        let div2 = document.createElement('div')
+        div2.className = "col-2"
+        let img = document.createElement('img')
+        img.src = "./assets/sunpng.png"
+        img.className = "createdImg"
+        div2.appendChild(img)
+
+        let div3 = document.createElement('div')
+        div3.className = "container"
+
+        let divRow = document.createElement('div')
+        divRow.className = "row"
+
+        divRow.appendChild(div1)
+        divRow.appendChild(div2)
+
+        div3.appendChild(divRow)
+
+
+        injectFav.appendChild(div3)
+
+    }
+
+    // <div class="container">
+    //     <div class="row">
+    //         <div class="col"></div>
+    //         <div class="col"></div>
+    //     </div>
+    // </div>
+
+    // let div = document.createElement("div");
+    // div.className = "createdDivTag flex-row"
+    // div.addEventListener('click', function () {
+    //     console.log(favoriteInput)
+    // })
+
+    // let p = document.createElement("p")
+    // p.innerText = favoriteInput
+    // p.className = "createdPTag"
+
+    // let img = document.createElement('img')
+    // img.src = "./assets/sunpng.png"
+    // img.className = "createdImg"
+
+
+    // div.appendChild(p)
+    // div.appendChild(img)
+
+    // injectFav.appendChild(div)
 
 
 
 
 
 
+}
 
+
+
+
+
+
+enterBtn.addEventListener('click', function () {
+    GetLocation();
+
+})
 
 
 let latitude1;
@@ -74,29 +166,17 @@ function errorFunc(error) {
 
 }
 
-
-
 async function GeolocationCheck(latitude, longitude) {
-    const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}${units}`);
+    // const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}${units}`);
+    const promise = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${apiKey}${units}`);
 
     const data = await promise.json();
 
+    // console.log("here here here")
+    // console.log(data[0].local_names.en)
 
-    console.log(data);
-
-
-    showlocation.innerText = data.name;
-    showCurrentTemp.innerText = Math.round(data.main.temp) + "°F";
-    showCurrentHigh.innerText = Math.round(data.main.temp_max) + "°F";
-    showCurrentLow.innerText = Math.round(data.main.temp_min) + "°F";
-    showCurrentDesc.innerText = data.weather[0].main;
-
-    const unixTimestamp = data.dt;
-    const formattedTime = new Date(unixTimestamp * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-
-    console.log(`The time is: ${formattedTime}`);
-
-    showCurrentTime.innerHTML = (formattedTime)
+    CurrentDay(data[0].local_names.en)
+    FiveDayForecast(data[0].local_names.en)
 
 }
 
@@ -104,39 +184,6 @@ async function GeolocationCheck(latitude, longitude) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let latitude = '37.961632';
-// let longitude = '-121.275604';
-
-
-
-
-//on click take location
-//put it in
-//if return something its true if not its false
-//if false return error
-//if it is save it
-//if not error
-
-enterBtn.addEventListener('click', function () {
-    GetLocation();
-})
 
 function GetLocation() {
     let location = userInput.value.toLowerCase();
@@ -153,38 +200,23 @@ async function CurrentDay(theCheck) {
         alert("Please enter valid location")
     } else {
 
-        console.log(data.name);
-        console.log(data);
+        console.log(data)
         showlocation.innerText = data.name;
         showCurrentTemp.innerText = Math.round(data.main.temp) + "°F";
         showCurrentHigh.innerText = Math.round(data.main.temp_max) + "°F";
         showCurrentLow.innerText = Math.round(data.main.temp_min) + "°F";
         showCurrentDesc.innerText = data.weather[0].main;
-
+        WeatherStatCheck(data.weather[0].main, showCurrentWeatherIcon);
         const unixTimestamp = data.dt;
         const formattedTime = new Date(unixTimestamp * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 
-        console.log(typeof formattedTime)
-
-        console.log(`The time is: ${formattedTime}`);
-
         showCurrentTime.innerHTML = (formattedTime)
-
     }
 
 }
 
-let highTemp;
-let lowTemp;
-let highTemp2;
-let lowTemp2;
-let highTemp3;
-let lowTemp3;
-let highTemp4;
-let lowTemp4;
-let highTemp5;
-let lowTemp5;
 
+let iteration = 0;
 
 async function FiveDayForecast(theCheck) {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${theCheck}&appid=${apiKey}${units}`);
@@ -193,126 +225,170 @@ async function FiveDayForecast(theCheck) {
     console.log("you're looking for this vv");
     console.log(data);
 
-    for (let i = 0; i < 8; i++) {
-        console.log(data.list[i].main.temp_max);
-        let currentHigh = data.list[i].main.temp_max;
 
-        if (currentHigh >= highTemp || highTemp === undefined) {
-            highTemp = currentHigh;
-            console.log("am I working");
-        }
-        if (currentHigh <= lowTemp || lowTemp === undefined) {
-            lowTemp = currentHigh;
-        }
 
+    let currentDate = new Date()
+
+    for (let i = 0; i < data.list.length; i++) {
+
+        if (currentDate.getDate() < new Date(data.list[i].dt * 1000).getDate() || currentDate.getFullYear() < new Date(data.list[i].dt * 1000).getFullYear() || currentDate.getMonth() < new Date(data.list[i].dt * 1000).getMonth()) {
+            iteration = i;
+
+            // console.log(new Date(data.list[i].dt * 1000))
+            break
+        }
+    }
+    console.log(iteration + 'true')
+
+
+    let tempDayNumber1 = new Date(data.list[iteration].dt * 1000).getDay();
+    showDay1.innerText = NumberToDay(tempDayNumber1);
+    let dayDay1 = new Date(data.list[iteration].dt * 1000).getDate();
+    let dayMonth1 = new Date(data.list[iteration].dt * 1000).getMonth() + 1;
+
+
+    showDate1.innerText = dayMonth1 + "/" + dayDay1;
+    showDay1High.innerText = Math.round(FindHigh(0)) + "°F"
+    showDay1Low.innerText = Math.round(FindLow(0)) + "°F"
+    let day1status = data.list[iteration].weather[0].main; // this holds clouds for change icon
+    WeatherStatCheck(day1status, showWeatherIconDay1)
+
+
+
+    let tempDayNumber2 = new Date(data.list[iteration + 8].dt * 1000).getDay();
+    showDay2.innerText = NumberToDay(tempDayNumber2);
+    let dayDay2 = new Date(data.list[iteration + 8].dt * 1000).getDate();
+    let dayMonth2 = new Date(data.list[iteration + 8].dt * 1000).getMonth() + 1;
+
+
+    showDate2.innerText = dayMonth2 + "/" + dayDay2;
+    showDay2High.innerText = Math.round(FindHigh(8)) + "°F"
+    showDay2Low.innerText = Math.round(FindLow(8)) + "°F"
+    let day2status = data.list[iteration + 8].weather[0].main; // this holds clouds for change icon
+    WeatherStatCheck(day2status, showWeatherIconDay2)
+
+    let tempDayNumber3 = new Date(data.list[iteration + 16].dt * 1000).getDay();
+    showDay3.innerText = NumberToDay(tempDayNumber3);
+    let dayDay3 = new Date(data.list[iteration + 16].dt * 1000).getDate();
+    let dayMonth3 = new Date(data.list[iteration + 16].dt * 1000).getMonth() + 1;
+
+
+    showDate3.innerText = dayMonth3 + "/" + dayDay3;
+    showDay3High.innerText = Math.round(FindHigh(16)) + "°F"
+    showDay3Low.innerText = Math.round(FindLow(16)) + "°F"
+    let day3status = data.list[iteration + 16].weather[0].main; // this holds clouds for change icon
+    WeatherStatCheck(day3status, showWeatherIconDay3)
+
+    let tempDayNumber4 = new Date(data.list[iteration + 24].dt * 1000).getDay();
+    showDay4.innerText = NumberToDay(tempDayNumber4);
+    let dayDay4 = new Date(data.list[iteration + 24].dt * 1000).getDate();
+    let dayMonth4 = new Date(data.list[iteration + 24].dt * 1000).getMonth() + 1;
+
+
+    showDate4.innerText = dayMonth4 + "/" + dayDay4;
+    showDay4High.innerText = Math.round(FindHigh(24)) + "°F"
+    showDay4Low.innerText = Math.round(FindLow(24)) + "°F"
+    let day4status = data.list[iteration + 24].weather[0].main; // this holds clouds for change icon
+    WeatherStatCheck(day4status, showWeatherIconDay4);
+
+
+    let tempDayNumber5 = new Date(data.list[iteration + 32].dt * 1000).getDay();
+    showDay5.innerText = NumberToDay(tempDayNumber5);
+    let dayDay5 = new Date(data.list[iteration + 32].dt * 1000).getDate();
+    let dayMonth5 = new Date(data.list[iteration + 32].dt * 1000).getMonth() + 1;
+
+
+    showDate5.innerText = dayMonth5 + "/" + dayDay5;
+    showDay5High.innerText = Math.round(FindHighLastCase(32)) + "°F"
+    showDay5Low.innerText = Math.round(FindLowLastCase(32)) + "°F"
+    let day5status = data.list[iteration + 32].weather[0].main; // this holds clouds for change icon
+    WeatherStatCheck(day5status, showWeatherIconDay5)
+
+    function FindHigh(add) {
+        let highTemp;
+
+        for (let i = iteration + add; i < iteration + 8 + add; i++) {
+            let currentHigh = data.list[i].main.temp;
+            if (currentHigh >= highTemp || highTemp === undefined) {
+                highTemp = currentHigh;
+            }
+        }
+        return (highTemp)
     }
 
-    console.log(highTemp);
-    console.log(lowTemp);
-    console.log("this is the high");
-
-    showDay1Low.innerText = Math.round(lowTemp) + "°F"
-    showDay1High.innerText = Math.round(highTemp) + "°F"
-    let day1status = data.list[0].weather[0].main; // this holds clouds for change icon
-
-    for (let i = 8; i < 16; i++) {
-        console.log(data.list[i].main.temp_max);
-        let currentHigh = data.list[i].main.temp_max;
-
-        if (currentHigh >= highTemp2 || highTemp2 === undefined) {
-            highTemp2 = currentHigh;
-            console.log("am I working");
+    function FindLow(add) {
+        let lowTemp;
+        for (let i = iteration + add; i < iteration + 8 + add; i++) {
+            let currentHigh = data.list[i].main.temp;
+            if (currentHigh <= lowTemp || lowTemp === undefined) {
+                lowTemp = currentHigh;
+            }
         }
-        if (currentHigh <= lowTemp2 || lowTemp2 === undefined) {
-            lowTemp2 = currentHigh;
-        }
+        return lowTemp;
+    }
+    function FindHighLastCase(add) {
+        let highTemp;
 
+        for (let i = iteration + add; i < 40; i++) {
+            let currentHigh = data.list[i].main.temp;
+            if (currentHigh >= highTemp || highTemp === undefined) {
+                highTemp = currentHigh;
+            }
+        }
+        return (highTemp)
     }
 
-    console.log(highTemp2);
-    console.log(lowTemp2);
-    console.log("this is the high");
+    function FindLowLastCase(add) {
+        let lowTemp
 
-    showDay2Low.innerText = Math.round(lowTemp2) + "°F"
-    showDay2High.innerText = Math.round(highTemp2) + "°F"
-    let day2status = data.list[8].weather[0].main; // this holds clouds for change icon
-    for (let i = 16; i < 24; i++) {
-        console.log(data.list[i].main.temp_max);
-        let currentHigh = data.list[i].main.temp_max;
-
-        if (currentHigh >= highTemp3 || highTemp3 === undefined) {
-            highTemp3 = currentHigh;
-            console.log("am I working");
+        for (let i = iteration + add; i < 40; i++) {
+            let currentHigh = data.list[i].main.temp;
+            if (currentHigh <= lowTemp || lowTemp === undefined) {
+                lowTemp = currentHigh;
+            }
         }
-        if (currentHigh <= lowTemp3 || lowTemp3 === undefined) {
-            lowTemp3 = currentHigh;
-        }
-
+        return lowTemp;
     }
-
-    console.log(highTemp3);
-    console.log(lowTemp3);
-    console.log("this is the high");
-
-    showDay3Low.innerText = Math.round(lowTemp3) + "°F"
-    showDay3High.innerText = Math.round(highTemp3) + "°F"
-    let day3status = data.list[16].weather[0].main; // this holds clouds for change icon
-
-    for (let i = 16; i < 24; i++) {
-        console.log(data.list[i].main.temp_max);
-        let currentHigh = data.list[i].main.temp_max;
-
-        if (currentHigh >= highTemp4 || highTemp4 === undefined) {
-            highTemp4 = currentHigh;
-            console.log("am I working");
-        }
-        if (currentHigh <= lowTemp4 || lowTemp4 === undefined) {
-            lowTemp4 = currentHigh;
-        }
-
-    }
-
-    console.log(highTemp4);
-    console.log(lowTemp4);
-    console.log("this is the high");
-
-    showDay4Low.innerText = Math.round(lowTemp4) + "°F"
-    showDay4High.innerText = Math.round(highTemp4) + "°F"
-    let day4status = data.list[24].weather[0].main; // this holds clouds for change icon
-
-    for (let i = 24; i < 32; i++) {
-        console.log(data.list[i].main.temp_max);
-        let currentHigh = data.list[i].main.temp_max;
-
-        if (currentHigh >= highTemp5 || highTemp5 === undefined) {
-            highTemp5 = currentHigh;
-            console.log("am I working");
-        }
-        if (currentHigh <= lowTemp5 || lowTemp5 === undefined) {
-            lowTemp5 = currentHigh;
-        }
-
-    }
-
-    console.log(highTemp5);
-    console.log(lowTemp5);
-    console.log("this is the high");
-
-    showDay5Low.innerText = Math.round(lowTemp5) + "°F"
-    showDay5High.innerText = Math.round(highTemp5) + "°F"
-    let day5status = data.list[32].weather[0].main; // this holds clouds for change icon
-
-
-
 
 }
 
 
+function WeatherStatCheck(weatherMain, show) {
+    if (weatherMain === 'Thunderstorm') {
+        show.src = "./assets/thunderStrom.png"
+    } else if (weatherMain === 'Drizzle') {
+        show.src = "./assets/cloudy png.png";
+    } else if (weatherMain === 'Rain') {
+        show.src = "./assets/cloudy png.png";
+    } else if (weatherMain === 'Snow') {
+        show.src = "./assets/snow.png"
+    } else if (weatherMain === 'Mist' || weatherMain === 'Smoke' || weatherMain === 'Haze' || weatherMain === 'Dust' || weatherMain === 'Fog' || weatherMain === 'Sand' || weatherMain === 'Dust' || weatherMain === 'Ash' || weatherMain === 'Squall' || weatherMain === 'Tornado') {
+        show.src = "./assets/hazy.png";
+    } else if (weatherMain === 'Clear') {
+        show.src = "./assets/sunpng.png"
+    } else if (weatherMain === 'Clouds') {
+        show.src = "./assets/cloudypng.png"
+    }
+}
 
 
-
-
-
+function NumberToDay(number) {
+    if (number === 0) {
+        return 'Sun';
+    } else if (number === 1) {
+        return 'Mon';
+    } else if (number === 2) {
+        return 'Tue';
+    } else if (number === 3) {
+        return 'Wed';
+    } else if (number === 4) {
+        return 'Thu';
+    } else if (number === 5) {
+        return 'Fri';
+    } else if (number === 6) {
+        return 'Sat';
+    }
+}
 
 
 
@@ -369,5 +445,119 @@ async function FiveDayForecast(theCheck) {
 
 
 
-// FiveDayForecast1();
-// CurrentDay1();
+
+
+// for (let i = 0; i < 8; i++) {
+//     // console.log(data.list[i].main.temp_max);
+//     let currentHigh = data.list[i].main.temp_max;
+
+//     if (currentHigh >= highTemp || highTemp === undefined) {
+//         highTemp = currentHigh;
+//     }
+//     if (currentHigh <= lowTemp || lowTemp === undefined) {
+//         lowTemp = currentHigh;
+//     }
+
+// }
+
+// // console.log(highTemp);
+// // console.log(lowTemp);
+// // console.log("this is the high");
+
+// showDay1Low.innerText = Math.round(lowTemp) + "°F"
+// showDay1High.innerText = Math.round(highTemp) + "°F"
+// let day1status = data.list[0].weather[0].main; // this holds clouds for change icon
+
+// for (let i = 8; i < 16; i++) {
+//     // console.log(data.list[i].main.temp_max);
+//     let currentHigh = data.list[i].main.temp_max;
+
+//     if (currentHigh >= highTemp2 || highTemp2 === undefined) {
+//         highTemp2 = currentHigh;
+//     }
+//     if (currentHigh <= lowTemp2 || lowTemp2 === undefined) {
+//         lowTemp2 = currentHigh;
+//     }
+
+// }
+
+// // console.log(highTemp2);
+// // console.log(lowTemp2);
+// // console.log("this is the high");
+
+// showDay2Low.innerText = Math.round(lowTemp2) + "°F"
+// showDay2High.innerText = Math.round(highTemp2) + "°F"
+// let day2status = data.list[8].weather[0].main; // this holds clouds for change icon
+// for (let i = 16; i < 24; i++) {
+//     // console.log(data.list[i].main.temp_max);
+//     let currentHigh = data.list[i].main.temp_max;
+
+//     if (currentHigh >= highTemp3 || highTemp3 === undefined) {
+//         highTemp3 = currentHigh;
+//     }
+//     if (currentHigh <= lowTemp3 || lowTemp3 === undefined) {
+//         lowTemp3 = currentHigh;
+//     }
+
+// }
+
+// // console.log(highTemp3);
+// // console.log(lowTemp3);
+// // console.log("this is the high");
+
+// showDay3Low.innerText = Math.round(lowTemp3) + "°F"
+// showDay3High.innerText = Math.round(highTemp3) + "°F"
+// let day3status = data.list[16].weather[0].main; // this holds clouds for change icon
+
+// for (let i = 16; i < 24; i++) {
+//     // console.log(data.list[i].main.temp_max);
+//     let currentHigh = data.list[i].main.temp_max;
+
+//     if (currentHigh >= highTemp4 || highTemp4 === undefined) {
+//         highTemp4 = currentHigh;
+//     }
+//     if (currentHigh <= lowTemp4 || lowTemp4 === undefined) {
+//         lowTemp4 = currentHigh;
+//     }
+
+// }
+
+// // console.log(highTemp4);
+// // console.log(lowTemp4);
+// // console.log("this is the high");
+
+// showDay4Low.innerText = Math.round(lowTemp4) + "°F"
+// showDay4High.innerText = Math.round(highTemp4) + "°F"
+// let day4status = data.list[24].weather[0].main; // this holds clouds for change icon
+
+// for (let i = 24; i < 32; i++) {
+//     // console.log(data.list[i].main.temp_max);
+//     let currentHigh = data.list[i].main.temp_max;
+
+//     if (currentHigh >= highTemp5 || highTemp5 === undefined) {
+//         highTemp5 = currentHigh;
+//     }
+//     if (currentHigh <= lowTemp5 || lowTemp5 === undefined) {
+//         lowTemp5 = currentHigh;
+//     }
+
+// }
+
+// // console.log(highTemp5);
+// // console.log(lowTemp5);
+// // console.log("this is the high");
+
+// showDay5Low.innerText = Math.round(lowTemp5) + "°F"
+// showDay5High.innerText = Math.round(highTemp5) + "°F"
+// let day5status = data.list[32].weather[0].main; // this holds clouds for change icon
+
+// let highTemp;
+// let lowTemp;
+// let highTemp2;
+// let lowTemp2;
+// let highTemp3;
+// let lowTemp3;
+// let highTemp4;
+// let lowTemp4;
+// let highTemp5;
+// let lowTemp5;

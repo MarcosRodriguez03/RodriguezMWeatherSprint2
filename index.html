@@ -27,7 +27,7 @@
             </div>
             <div class="col d-flex align-items-center justify-content-end">
                 <input id="userInput" class=" me-3 customSearch px-3" type="search" placeholder="Search for a City">
-                <button id="enterBtn" type="button" class="btn purpleColor ">
+                <button id="enterBtn" type="button" class="  purpleColor ">
                     <img src="./assets/Search.png" alt="search icon">
 
                 </button>
@@ -50,10 +50,10 @@
         <div class="row ">
             <div class="col me-2 currentDay">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-8">
                         <p id="showLocation" class="locationFont mb-0">Stockton</p>
                     </div>
-                    <div class="col d-flex justify-content-end align-items-center"><img id="showHeartIcon"
+                    <div class="col-4 d-flex justify-content-end align-items-center"><img id="showHeartIcon"
                             src="./assets/empty heart.png" style="height: 30px;" alt="heart icon">
                     </div>
                 </div>
@@ -76,6 +76,7 @@
                         <span class="d-flex flex-row justify-content-end">
                             <p class="currentDayDescFont">H:</p>
                             <p id="showCurrentHigh" class="currentDayDescFont">72°F</p>
+                            <p>&nbsp;</p>
                             <p class="currentDayDescFont">L:</p>
                             <p id="showCurrentLow" class="currentDayDescFont">37°F</p>
                         </span>
@@ -94,20 +95,20 @@
                     <div class="col d-flex flex-column align-items-center">
                         <p class="eightAmFont">8am</p>
                         <img src="./assets/sunpng.png" style="height: 75px;" alt="weather icon">
-                        <p class="eightAmWeatherFont">38°</p>
+                        <p class="eightAmWeatherFont">42°</p>
                     </div>
                     <div class="col d-flex flex-column align-items-center"
                         style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
 
-                        <p class=" eightAmFont">8am</p>
+                        <p class=" eightAmFont">noon</p>
                         <img src="./assets/cloudypng.png" style="height: 75px;" alt="weather icon">
-                        <p class="eightAmWeatherFont">38°</p>
+                        <p class="eightAmWeatherFont">58°</p>
 
                     </div>
                     <div class="col d-flex flex-column align-items-center">
-                        <p class="eightAmFont">8am</p>
+                        <p class="eightAmFont">8pm</p>
                         <img src="./assets/moon.png" style="height: 75px;" alt="weather icon">
-                        <p class="eightAmWeatherFont">38°</p>
+                        <p class="eightAmWeatherFont">46°</p>
                     </div>
                 </div>
             </div>
@@ -129,7 +130,7 @@
 
 
                 <span class=" d-flex flex-row d-flex justify-content-center">
-                    <p style=" border-right:black solid;" class="eightAmFont pe-1" id="showDay1High">74°F</p>
+                    <p style=" border-right:#454545 1px solid;" class="eightAmFont pe-1" id="showDay1High">74°F</p>
                     <p class="eightAmFont ps-1" id="showDay1Low">34°F</p>
                 </span>
             </div>
@@ -146,7 +147,7 @@
 
 
                 <span class=" d-flex flex-row d-flex justify-content-center">
-                    <p style=" border-right:black solid;" class="eightAmFont pe-1" id="showDay2High">74°F</p>
+                    <p style=" border-right:#454545 1px solid;" class="eightAmFont pe-1" id="showDay2High">74°F</p>
                     <p class="eightAmFont ps-1" id="showDay2Low">34°F</p>
                 </span>
             </div>
@@ -163,7 +164,7 @@
 
 
                 <span class=" d-flex flex-row d-flex justify-content-center">
-                    <p style=" border-right:black solid;" class="eightAmFont pe-1" id="showDay3High">74°F</p>
+                    <p style=" border-right:#454545 1px solid;" class="eightAmFont pe-1" id="showDay3High">74°F</p>
                     <p class="eightAmFont ps-1" id="showDay3Low">34°F</p>
                 </span>
             </div>
@@ -180,7 +181,7 @@
 
 
                 <span class=" d-flex flex-row d-flex justify-content-center">
-                    <p style=" border-right:black solid;" class="eightAmFont pe-1" id="showDay4High">74°F</p>
+                    <p style=" border-right:#454545 1px solid;" class="eightAmFont pe-1" id="showDay4High">74°F</p>
                     <p class="eightAmFont ps-1" id="showDay4Low">34°F</p>
                 </span>
             </div>
@@ -197,7 +198,7 @@
 
 
                 <span class=" d-flex flex-row d-flex justify-content-center">
-                    <p style=" border-right:black solid;" class="eightAmFont pe-1" id="showDay5High">74°F</p>
+                    <p style=" border-right:#454545 1px solid; " class="eightAmFont pe-1" id="showDay5High">74°F</p>
                     <p class="eightAmFont ps-1" id="showDay5Low">34°F</p>
                 </span>
             </div>
@@ -207,12 +208,24 @@
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
         id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">YOUR FAVOIRITE CITIES </h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <p>Try scrolling the rest of the page to see this option in action.</p>
-            <div style="background-color: wheat;"> test</div>
+            <div style="background-color: wheat;">
+
+                <div id="injectFav">
+
+                    <div>
+                        <h1>test</h1>
+                    </div>
+                </div>
+
+
+
+
+            </div>
         </div>
     </div>
 
@@ -220,9 +233,10 @@
 
 
     <div class="d-flex justify-content-center mt-4">
-        <button class="btn favBtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+        <button class=" favBtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
             aria-controls="offcanvasScrolling">
             <p>Open Your Favorite Places</p>
+
 
 
 

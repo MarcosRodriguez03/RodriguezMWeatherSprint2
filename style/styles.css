@@ -21,7 +21,23 @@ body {
 .purpleColor {
     background-color: #BDB8F8;
     border-radius: 10px;
+    padding: 6px;
+    border: none;
+
 }
+
+.purpleColor:hover {
+    background-color: #aea9e3;
+    border-radius: 10px;
+
+}
+
+.purpleColor:active {
+    background-color: #a39fd6;
+    border-radius: 10px;
+}
+
+
 
 .padding {
     padding-left: 400px;
@@ -91,8 +107,23 @@ body {
 
 .favBtn {
     background-color: rgba(255, 255, 255, 0.657);
-    border-radius: 25px;
+    border-radius: 15px;
     width: 555px;
+    border: none;
+}
+
+.favBtn:hover {
+    background-color: rgba(255, 255, 255, 0.599);
+    border-radius: 15px;
+    width: 555px;
+    border: none;
+}
+
+.favBtn:active {
+    background-color: rgba(255, 255, 255, 0.368);
+    border-radius: 15px;
+    width: 555px;
+    border: none;
 }
 
 .favBtn p {
@@ -101,4 +132,22 @@ body {
     margin-bottom: 0;
     padding: 7px;
     color: #707070;
+}
+
+.offcanvas {
+    background-color: rgba(255, 255, 255, 0.735);
+    max-width: 370px;
+}
+
+.createdDivTag {
+    color: black;
+}
+
+.createdPTag {
+    color: black;
+    width: fit-content;
+}
+
+.createdImg {
+    width: 50px;
 }
