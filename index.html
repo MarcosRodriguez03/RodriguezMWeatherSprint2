@@ -97,20 +97,20 @@
                     <div class="col d-flex flex-column align-items-center">
                         <p class="eightAmFont">8am</p>
                         <img src="./assets/sunpng.png" style="height: 75px; margin-top: 15px;" alt="weather icon">
-                        <p class="eightAmWeatherFont">42°</p>
+                        <p class="eightAmWeatherFont" id="show8am">42°</p>
                     </div>
                     <div class="col d-flex flex-column align-items-center"
                         style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
 
                         <p class=" eightAmFont">noon</p>
                         <img src="./assets/cloudypng.png" style="height: 75px; margin-top: 15px;" alt="weather icon">
-                        <p class="eightAmWeatherFont">58°</p>
+                        <p class="eightAmWeatherFont" id="showNoon">58°</p>
 
                     </div>
                     <div class="col d-flex flex-column align-items-center">
                         <p class="eightAmFont">8pm</p>
                         <img src="./assets/moon.png" style="height: 75px; margin-top: 15px;" alt="weather icon">
-                        <p class="eightAmWeatherFont">46°</p>
+                        <p class="eightAmWeatherFont" id="show8pm">46°</p>
                     </div>
                 </div>
             </div>
@@ -251,7 +251,7 @@
                             <p id="showDay18amWeather" class="eightAmWeatherFont">42°</p>
                         </div>
                         <div class="col d-flex flex-column align-items-center"
-                            style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
+                            style="border-left: dotted #a5a5a5 4px; border-right: dotted #a5a5a5 4px;">
 
                             <p class=" eightAmFont">noon</p>
                             <img id="showIconDay1Noon" src="./assets/cloudypng.png"
@@ -291,7 +291,7 @@
                             <p id="showDay28amWeather" class="eightAmWeatherFont">42°</p>
                         </div>
                         <div class="col d-flex flex-column align-items-center"
-                            style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
+                            style="border-left: dotted #a5a5a5 4px; border-right: dotted #a5a5a5 4px;">
 
                             <p class=" eightAmFont">noon</p>
                             <img id="showIconDay2Noon" src="./assets/cloudypng.png"
@@ -331,7 +331,7 @@
                             <p id="showDay38amWeather" class="eightAmWeatherFont">43°</p>
                         </div>
                         <div class="col d-flex flex-column align-items-center"
-                            style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
+                            style="border-left: dotted #a5a5a5 4px; border-right: dotted #a5a5a5 4px;">
 
                             <p class=" eightAmFont">noon</p>
                             <img id="showIconDay3Noon" src="./assets/cloudypng.png"
@@ -371,7 +371,7 @@
                             <p id="showDay48amWeather" class="eightAmWeatherFont">44°</p>
                         </div>
                         <div class="col d-flex flex-column align-items-center"
-                            style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
+                            style="border-left: dotted #a5a5a5 4px; border-right: dotted #a5a5a5 4px;">
 
                             <p class=" eightAmFont">noon</p>
                             <img id="showIconDay4Noon" src="./assets/cloudypng.png"
@@ -411,7 +411,7 @@
                             <p id="showDay58amWeather" class="eightAmWeatherFont">45°</p>
                         </div>
                         <div class="col d-flex flex-column align-items-center"
-                            style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
+                            style="border-left: dotted #a5a5a5 4px; border-right: dotted #a5a5a5 4px;">
 
                             <p class=" eightAmFont">noon</p>
                             <img id="showIconDay5Noon" src="./assets/cloudypng.png"
@@ -446,6 +446,32 @@
         </button>
     </div>
 
+
+
+    <div style="display: none; " id="errorPopUp">
+        <div class="errorPopUp d-flex flex-column align-items-center justify-content-center">
+            <img src="./assets/noMap.png" class="errorPic" alt="error pic">
+            <br>
+            <p class="errorText1">whoops</p>
+            <p class="errorText2 padding3">The city you tried searching for cannot be found. Please try another
+                location.
+            </p>
+
+            <button id="errorBtn" class="errorBtn d-flex justify-content-center align-items-center">
+                <p class="errorText3">Try another search ></p>
+            </button>
+        </div>
+    </div>
+
+
+    <div id="hideBtmTextF" style="display: block;">
+        <p class="text-center textBtm mt-4">tempurature view: Fahrenheit (click to change)</p>
+    </div>
+
+
+    <div id="hideBtmTextC" style="display: none;">
+        <p class="text-center textBtm mt-4">tempurature view: Celsius (click to change)</p>
+    </div>
 
 
 

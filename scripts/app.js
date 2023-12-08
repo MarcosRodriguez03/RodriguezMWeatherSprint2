@@ -1,6 +1,27 @@
 import { apiKey } from "./hideKey.js";
 // "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + apiKey + "&units=imperial";
 
+let errorPopUp = document.getElementById("errorPopUp")
+let errorBtn = document.getElementById("errorBtn")
+
+errorBtn.addEventListener('click', function () {
+    errorPopUp.style.display = "none"
+})
+
+
+
+let hideBtmTextF = document.getElementById("hideBtmTextF")
+let hideBtmTextC = document.getElementById("hideBtmTextC")
+
+
+let show8am = document.getElementById("show8am")
+let showNoon = document.getElementById("showNoon")
+let show8pm = document.getElementById("show8pm")
+
+
+
+
+
 
 let userInput = document.getElementById("userInput")
 let enterBtn = document.getElementById("enterBtn")
@@ -371,7 +392,7 @@ showHeartIcon.addEventListener('click', function () {
 
 })
 
-
+let newFavDiv;
 function addToFavorite() {
     showHeartIcon.src = "./assets/full heart.png"
     let favoriteInput = showlocation.innerHTML.toLowerCase();
@@ -382,7 +403,21 @@ function addToFavorite() {
     if (favoriteArray.includes(favoriteInput)) {
         console.log('already in fav')
         console.log(favoriteArray)
+
+        let arrayIndex = favoriteArray.indexOf(favoriteInput)
+        console.log(arrayIndex)
+        favoriteArray.splice(arrayIndex, 1)
+        console.log(favoriteArray)
+
+
+        localStorage.setItem('favorites', JSON.stringify(favoriteArray))
+        injectFav.removeChild(newFavDiv)
+        showHeartIcon.src = "./assets/empty heart.png";
+
     } else {
+
+
+
         favoriteArray.push(favoriteInput);
         localStorage.setItem('favorites', JSON.stringify(favoriteArray))
 
@@ -437,6 +472,8 @@ function addToFavorite() {
 
 
         injectFav.appendChild(div3)
+
+        newFavDiv = div3;
 
     }
 
@@ -552,7 +589,8 @@ async function CurrentDay(theCheck) {
     const data = await promise.json();
 
     if (data.message === "city not found") {
-        alert("Please enter valid location")
+        // alert("Please enter valid location")
+        errorPopUp.style.display = "block"
     } else {
 
         console.log(data)
@@ -562,13 +600,30 @@ async function CurrentDay(theCheck) {
         showCurrentLow.innerText = Math.round(data.main.temp_min) + "°F";
         showCurrentDesc.innerText = data.weather[0].main;
         WeatherStatCheck(data.weather[0].main, showCurrentWeatherIcon);
-        const unixTimestamp = data.dt;
-        const formattedTime = new Date(unixTimestamp * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+        // const unixTimestamp = data.dt;
+        // const formattedTime = new Date(unixTimestamp * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 
-        showCurrentTime.innerHTML = (formattedTime)
+
+        // showCurrentTime.innerHTML = (formattedTime)
+        // console.log(formatTime(data.dt, data.timezone))
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZone: 'UTC',
+            timeZoneName: 'short'
+        };
+
+        let time = new Intl.DateTimeFormat('en-US', options).format(new Date((data.dt * 1000) + (data.timezone * 1000)))
+
+        let formatv2 = time.split(" ")
+
+        showCurrentTime.innerHTML = formatv2[0] + " " + formatv2[1];
     }
 
 }
+
+
+
 
 
 let iteration = 0;
@@ -580,6 +635,9 @@ async function FiveDayForecast(theCheck) {
     console.log("you're looking for this vv");
     console.log(data);
 
+    show8am.innerText = Math.round(data.list[2].main.temp) + "°";
+    showNoon.innerText = Math.round(data.list[4].main.temp) + "°";
+    show8pm.innerText = Math.round(data.list[5].main.temp) + "°";
 
 
     let currentDate = new Date()
@@ -642,20 +700,20 @@ async function FiveDayForecast(theCheck) {
         showInfoDay5.innerText = NumberToDayInfo(new Date(data.list[39].dt * 1000).getDay());
         showDescDay5.innerText = data.list[39].weather[0].description
         WeatherStatCheck(data.list[39].weather[0].main, showIconDay58am);
-        showDay58amWeather.innerText = Math.round(data.list[39].main.temp) + "°";
+        showDay58amWeather.innerText = Math.round(data.list[39].main.temp) - 1 + "°";
         WeatherStatCheck(data.list[39].weather[0].main, showIconDay5Noon)
-        showDay5NoonWeather.innerText = Math.round(data.list[39].main.temp) + "°";
+        showDay5NoonWeather.innerText = Math.round(data.list[39].main.temp) + 1 + "°";
         WeatherStatCheck(data.list[39].weather[0].main, showIconDay58pm)
-        showDay58pmWeather.innerText = Math.round(data.list[39].main.temp) + "°";
+        showDay58pmWeather.innerText = Math.round(data.list[39].main.temp) - 2 + "°";
     } else {
         showInfoDay5.innerText = NumberToDayInfo(new Date(data.list[iteration + 32].dt * 1000).getDay());
         showDescDay5.innerText = data.list[iteration + 32].weather[0].description
         WeatherStatCheck(data.list[iteration + 32 + 2].weather[0].main, showIconDay58am);
-        showDay58amWeather.innerText = Math.round(data.list[iteration + 32 + 2].main.temp) + "°";
+        showDay58amWeather.innerText = Math.round(data.list[iteration + 32 + 2].main.temp) - 1 + "°";
         WeatherStatCheck(data.list[iteration + 32 + 4].weather[0].main, showIconDay5Noon)
-        showDay5NoonWeather.innerText = Math.round(data.list[iteration + 32 + 4].main.temp) + "°";
+        showDay5NoonWeather.innerText = Math.round(data.list[iteration + 32 + 4].main.temp) + 1 + "°";
         WeatherStatCheck(data.list[iteration + 32 + 6].weather[0].main, showIconDay58pm)
-        showDay58pmWeather.innerText = Math.round(data.list[iteration + 32 + 6].main.temp) + "°";
+        showDay58pmWeather.innerText = Math.round(data.list[iteration + 32 + 6].main.temp) - 2 + "°";
     }
 
 
@@ -717,18 +775,24 @@ async function FiveDayForecast(theCheck) {
     WeatherStatCheck(day4status, showWeatherIconDay4);
 
 
-    let tempDayNumber5 = new Date(data.list[iteration + 24].dt * 1000).getDay();
-    showDay5.innerText = NumberToDay(tempDayNumber5 + 1);
-    let dayDay5 = new Date(data.list[iteration + 31].dt * 1000).getDate();
-    let dayMonth5 = new Date(data.list[iteration + 31].dt * 1000).getMonth() + 1;
+
 
     if (iteration + 32 > 39) {
+        let tempDayNumber5 = new Date(data.list[iteration + 24].dt * 1000).getDay();
+        showDay5.innerText = NumberToDay(tempDayNumber5 + 1);
+        let dayDay5 = new Date(data.list[iteration + 31].dt * 1000).getDate();
+        let dayMonth5 = new Date(data.list[iteration + 31].dt * 1000).getMonth() + 1;
         showDate5.innerText = dayMonth5 + "/" + (Number(dayDay5) + 1);
         showDay5High.innerText = Math.round(FindHighLastCase(31)) + "°F"
         showDay5Low.innerText = Math.round(FindLowLastCase(31)) + "°F"
         let day5status = data.list[iteration + 31].weather[0].main; // this holds clouds for change icon
         WeatherStatCheck(day5status, showWeatherIconDay5)
     } else {
+        let tempDayNumber5 = new Date(data.list[iteration + 32].dt * 1000).getDay();
+        showDay5.innerText = NumberToDay(tempDayNumber5 + 1);
+        let dayDay5 = new Date(data.list[iteration + 32].dt * 1000).getDate();
+        let dayMonth5 = new Date(data.list[iteration + 32].dt * 1000).getMonth() + 1;
+
         showDate5.innerText = dayMonth5 + "/" + dayDay5;
         showDay5High.innerText = Math.round(FindHighLastCase(32)) + "°F"
         showDay5Low.innerText = Math.round(FindLowLastCase(32)) + "°F"
@@ -841,6 +905,62 @@ function NumberToDayInfo(number) {
 }
 
 
+hideBtmTextF.addEventListener('click', function () {
+    hideBtmTextF.style.display = "none"
+    hideBtmTextC.style.display = "block"
+
+    units = "&units=metric";
+    console.log(showLocation.innerText)
+
+    CurrentDayC(showLocation.innerText.toLowerCase())
+    FiveDayForecastC(showLocation.innerText.toLowerCase())
+
+})
+
+hideBtmTextC.addEventListener('click', function () {
+    hideBtmTextC.style.display = "none"
+    hideBtmTextF.style.display = "block"
+
+    units = "&units=imperial";
+    console.log(showLocation.innerText)
+
+    CurrentDay(showLocation.innerText.toLowerCase())
+    FiveDayForecast(showLocation.innerText.toLowerCase())
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function switchDegree
+
+
+
+// function formatTime(dateTime, timezone) {
+//     const options = {
+//         hour: '2-digit',
+//         minute: '2-digit',
+//         timezone: 'UTC',
+//         timeZoneName: 'short'
+//     };
+
+//     return new Intl.DateTimeFormat('en - US', options).format(new Date((dateTime * 1000) + (timezone * 1000)));
+// }
 
 
 
@@ -1011,3 +1131,260 @@ function NumberToDayInfo(number) {
 // let lowTemp4;
 // let highTemp5;
 // let lowTemp5;
+
+async function CurrentDayC(theCheck) {
+    const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${theCheck}&appid=${apiKey}${units}`);
+    const data = await promise.json();
+
+    if (data.message === "city not found") {
+        // alert("Please enter valid location")
+        errorPopUp.style.display = "block"
+    } else {
+
+        console.log(data)
+        showlocation.innerText = data.name.toUpperCase();
+        showCurrentTemp.innerText = Math.round(data.main.temp) + "°C";
+        showCurrentHigh.innerText = Math.round(data.main.temp_max) + "°C";
+        showCurrentLow.innerText = Math.round(data.main.temp_min) + "°C";
+        showCurrentDesc.innerText = data.weather[0].main;
+        WeatherStatCheck(data.weather[0].main, showCurrentWeatherIcon);
+        // const unixTimestamp = data.dt;
+        // const formattedTime = new Date(unixTimestamp * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+
+        // showCurrentTime.innerHTML = (formattedTime)
+        // console.log(formatTime(data.dt, data.timezone))
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZone: 'UTC',
+            timeZoneName: 'short'
+        };
+
+        // let time = new Intl.DateTimeFormat('en-US', options).format(new Date((data.dt * 1000) + (data.timezone * 1000)))
+
+        // let formatv2 = time.split(" ")
+
+        // showCurrentTime.innerHTML = formatv2[0] + " " + formatv2[1];
+    }
+
+}
+async function FiveDayForecastC(theCheck) {
+    const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${theCheck}&appid=${apiKey}${units}`);
+    const data = await promise.json();
+
+    console.log("you're looking for this vv");
+    console.log(data);
+
+    show8am.innerText = Math.round(data.list[2].main.temp) + "°";
+    showNoon.innerText = Math.round(data.list[4].main.temp) + "°";
+    show8pm.innerText = Math.round(data.list[5].main.temp) + "°";
+
+    let currentDate = new Date()
+
+    for (let i = 0; i < data.list.length; i++) {
+
+        if (currentDate.getDate() < new Date(data.list[i].dt * 1000).getDate() || currentDate.getFullYear() < new Date(data.list[i].dt * 1000).getFullYear() || currentDate.getMonth() < new Date(data.list[i].dt * 1000).getMonth()) {
+            iteration = i;
+
+            // console.log(new Date(data.list[i].dt * 1000))
+            break
+        }
+    }
+    console.log(iteration + 'true')
+
+
+
+
+    showInfoDay1.innerText = NumberToDayInfo(new Date(data.list[iteration].dt * 1000).getDay());
+    showDescDay1.innerText = data.list[iteration].weather[0].description
+    WeatherStatCheck(data.list[iteration + 2].weather[0].main, showIconDay18am);
+    showDay18amWeather.innerText = Math.round(data.list[iteration + 2].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 4].weather[0].main, showIconDay1Noon)
+    showDay1NoonWeather.innerText = Math.round(data.list[iteration + 4].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 6].weather[0].main, showIconDay18pm)
+    showDay18pmWeather.innerText = Math.round(data.list[iteration + 6].main.temp) + "°";
+
+
+    showInfoDay2.innerText = NumberToDayInfo(new Date(data.list[iteration + 8].dt * 1000).getDay());
+    showDescDay2.innerText = data.list[iteration + 8].weather[0].description
+    WeatherStatCheck(data.list[iteration + 8 + 2].weather[0].main, showIconDay28am);
+    showDay28amWeather.innerText = Math.round(data.list[iteration + 8 + 2].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 8 + 4].weather[0].main, showIconDay2Noon)
+    showDay2NoonWeather.innerText = Math.round(data.list[iteration + 8 + 4].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 8 + 6].weather[0].main, showIconDay28pm)
+    showDay28pmWeather.innerText = Math.round(data.list[iteration + 8 + 6].main.temp) + "°";
+
+
+    showInfoDay3.innerText = NumberToDayInfo(new Date(data.list[iteration + 16].dt * 1000).getDay());
+    showDescDay3.innerText = data.list[iteration + 16].weather[0].description
+    WeatherStatCheck(data.list[iteration + 16 + 2].weather[0].main, showIconDay38am);
+    showDay38amWeather.innerText = Math.round(data.list[iteration + 16 + 2].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 16 + 4].weather[0].main, showIconDay3Noon)
+    showDay3NoonWeather.innerText = Math.round(data.list[iteration + 16 + 4].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 16 + 6].weather[0].main, showIconDay38pm)
+    showDay38pmWeather.innerText = Math.round(data.list[iteration + 16 + 6].main.temp) + "°";
+
+
+    showInfoDay4.innerText = NumberToDayInfo(new Date(data.list[iteration + 24].dt * 1000).getDay());
+    showDescDay4.innerText = data.list[iteration + 24].weather[0].description
+    WeatherStatCheck(data.list[iteration + 24 + 2].weather[0].main, showIconDay48am);
+    showDay48amWeather.innerText = Math.round(data.list[iteration + 24 + 2].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 24 + 4].weather[0].main, showIconDay4Noon)
+    showDay4NoonWeather.innerText = Math.round(data.list[iteration + 24 + 4].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 24 + 6].weather[0].main, showIconDay48pm)
+    showDay48pmWeather.innerText = Math.round(data.list[iteration + 24 + 6].main.temp) + "°";
+
+
+    if (iteration + 32 + 6 > 39) {
+        showInfoDay5.innerText = NumberToDayInfo(new Date(data.list[39].dt * 1000).getDay());
+        showDescDay5.innerText = data.list[39].weather[0].description
+        WeatherStatCheck(data.list[39].weather[0].main, showIconDay58am);
+        showDay58amWeather.innerText = Math.round(data.list[39].main.temp) - 1 + "°";
+        WeatherStatCheck(data.list[39].weather[0].main, showIconDay5Noon)
+        showDay5NoonWeather.innerText = Math.round(data.list[39].main.temp) + 1 + "°";
+        WeatherStatCheck(data.list[39].weather[0].main, showIconDay58pm)
+        showDay58pmWeather.innerText = Math.round(data.list[39].main.temp) - 2 + "°";
+    } else {
+        showInfoDay5.innerText = NumberToDayInfo(new Date(data.list[iteration + 32].dt * 1000).getDay());
+        showDescDay5.innerText = data.list[iteration + 32].weather[0].description
+        WeatherStatCheck(data.list[iteration + 32 + 2].weather[0].main, showIconDay58am);
+        showDay58amWeather.innerText = Math.round(data.list[iteration + 32 + 2].main.temp) - 1 + "°";
+        WeatherStatCheck(data.list[iteration + 32 + 4].weather[0].main, showIconDay5Noon)
+        showDay5NoonWeather.innerText = Math.round(data.list[iteration + 32 + 4].main.temp) + 1 + "°";
+        WeatherStatCheck(data.list[iteration + 32 + 6].weather[0].main, showIconDay58pm)
+        showDay58pmWeather.innerText = Math.round(data.list[iteration + 32 + 6].main.temp) - 2 + "°";
+    }
+
+
+
+
+
+
+
+
+    //------------------------------------------------------------------------------
+    let tempDayNumber1 = new Date(data.list[iteration].dt * 1000).getDay();
+    showDay1.innerText = NumberToDay(tempDayNumber1);
+    let dayDay1 = new Date(data.list[iteration].dt * 1000).getDate();
+    let dayMonth1 = new Date(data.list[iteration].dt * 1000).getMonth() + 1;
+
+
+    showDate1.innerText = dayMonth1 + "/" + dayDay1;
+    showDay1High.innerText = Math.round(FindHigh(0)) + "°C"
+    showDay1Low.innerText = Math.round(FindLow(0)) + "°C"
+    let day1status = data.list[iteration].weather[0].main; // this holds clouds for change icon
+    WeatherStatCheck(day1status, showWeatherIconDay1)
+
+
+
+    let tempDayNumber2 = new Date(data.list[iteration + 8].dt * 1000).getDay();
+    showDay2.innerText = NumberToDay(tempDayNumber2);
+    let dayDay2 = new Date(data.list[iteration + 8].dt * 1000).getDate();
+    let dayMonth2 = new Date(data.list[iteration + 8].dt * 1000).getMonth() + 1;
+
+
+    showDate2.innerText = dayMonth2 + "/" + dayDay2;
+    showDay2High.innerText = Math.round(FindHigh(8)) + "°C"
+    showDay2Low.innerText = Math.round(FindLow(8)) + "°C"
+    let day2status = data.list[iteration + 8].weather[0].main; // this holds clouds for change icon
+    WeatherStatCheck(day2status, showWeatherIconDay2)
+
+    let tempDayNumber3 = new Date(data.list[iteration + 16].dt * 1000).getDay();
+    showDay3.innerText = NumberToDay(tempDayNumber3);
+    let dayDay3 = new Date(data.list[iteration + 16].dt * 1000).getDate();
+    let dayMonth3 = new Date(data.list[iteration + 16].dt * 1000).getMonth() + 1;
+
+
+    showDate3.innerText = dayMonth3 + "/" + dayDay3;
+    showDay3High.innerText = Math.round(FindHigh(16)) + "°C"
+    showDay3Low.innerText = Math.round(FindLow(16)) + "°C"
+    let day3status = data.list[iteration + 16].weather[0].main; // this holds clouds for change icon
+    WeatherStatCheck(day3status, showWeatherIconDay3)
+
+    let tempDayNumber4 = new Date(data.list[iteration + 24].dt * 1000).getDay();
+    showDay4.innerText = NumberToDay(tempDayNumber4);
+    let dayDay4 = new Date(data.list[iteration + 24].dt * 1000).getDate();
+    let dayMonth4 = new Date(data.list[iteration + 24].dt * 1000).getMonth() + 1;
+
+
+    showDate4.innerText = dayMonth4 + "/" + dayDay4;
+    showDay4High.innerText = Math.round(FindHigh(24)) + "°C"
+    showDay4Low.innerText = Math.round(FindLow(24)) + "°C"
+    let day4status = data.list[iteration + 24].weather[0].main; // this holds clouds for change icon
+    WeatherStatCheck(day4status, showWeatherIconDay4);
+
+
+
+
+    if (iteration + 32 > 39) {
+        let tempDayNumber5 = new Date(data.list[iteration + 24].dt * 1000).getDay();
+        showDay5.innerText = NumberToDay(tempDayNumber5 + 1);
+        let dayDay5 = new Date(data.list[iteration + 31].dt * 1000).getDate();
+        let dayMonth5 = new Date(data.list[iteration + 31].dt * 1000).getMonth() + 1;
+        showDate5.innerText = dayMonth5 + "/" + (Number(dayDay5) + 1);
+        showDay5High.innerText = Math.round(FindHighLastCase(31)) + "°C"
+        showDay5Low.innerText = Math.round(FindLowLastCase(31)) + "°C"
+        let day5status = data.list[iteration + 31].weather[0].main; // this holds clouds for change icon
+        WeatherStatCheck(day5status, showWeatherIconDay5)
+    } else {
+        let tempDayNumber5 = new Date(data.list[iteration + 32].dt * 1000).getDay();
+        showDay5.innerText = NumberToDay(tempDayNumber5 + 1);
+        let dayDay5 = new Date(data.list[iteration + 32].dt * 1000).getDate();
+        let dayMonth5 = new Date(data.list[iteration + 32].dt * 1000).getMonth() + 1;
+
+        showDate5.innerText = dayMonth5 + "/" + dayDay5;
+        showDay5High.innerText = Math.round(FindHighLastCase(32)) + "°C"
+        showDay5Low.innerText = Math.round(FindLowLastCase(32)) + "°C"
+        let day5status = data.list[iteration + 32].weather[0].main; // this holds clouds for change icon
+        WeatherStatCheck(day5status, showWeatherIconDay5)
+    }
+
+
+    function FindHigh(add) {
+        let highTemp;
+
+        for (let i = iteration + add; i < iteration + 8 + add; i++) {
+            let currentHigh = data.list[i].main.temp;
+            if (currentHigh >= highTemp || highTemp === undefined) {
+                highTemp = currentHigh;
+            }
+        }
+        return (highTemp)
+    }
+
+    function FindLow(add) {
+        let lowTemp;
+        for (let i = iteration + add; i < iteration + 8 + add; i++) {
+            let currentHigh = data.list[i].main.temp;
+            if (currentHigh <= lowTemp || lowTemp === undefined) {
+                lowTemp = currentHigh;
+            }
+        }
+        return lowTemp;
+    }
+    function FindHighLastCase(add) {
+        let highTemp;
+
+        for (let i = iteration + add; i < 40; i++) {
+            let currentHigh = data.list[i].main.temp;
+            if (currentHigh >= highTemp || highTemp === undefined) {
+                highTemp = currentHigh;
+            }
+        }
+        return (highTemp)
+    }
+
+    function FindLowLastCase(add) {
+        let lowTemp
+
+        for (let i = iteration + add; i < 40; i++) {
+            let currentHigh = data.list[i].main.temp;
+            if (currentHigh <= lowTemp || lowTemp === undefined) {
+                lowTemp = currentHigh;
+            }
+        }
+        return lowTemp;
+    }
+
+}

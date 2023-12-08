@@ -206,3 +206,80 @@ body {
     letter-spacing: normal;
 
 }
+
+.errorPopUp {
+    position: absolute;
+    background-color: white;
+    border-radius: 20px;
+    border: #dfdfdf solid 1px;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+    height: 600px;
+    width: 850px;
+}
+
+.errorPic {
+    width: 110px;
+    height: auto;
+}
+
+.padding3 {
+    padding-left: 240px;
+    padding-right: 240px;
+}
+
+.errorText1 {
+    font-family: 'Philosopher', sans-serif;
+    font-size: 40px;
+    color: #5C5C5C;
+    margin-bottom: 20px;
+
+}
+
+.errorText2 {
+    text-align: center;
+    font-size: 16px;
+    color: #5C5C5C;
+    margin-bottom: 50px;
+}
+
+.errorText3 {
+    font-size: 16px;
+    color: black;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+}
+
+.errorBtn {
+    border: none;
+    border-radius: 15px;
+    width: 270px;
+    height: 45px;
+    background-color: #BDB8F8;
+    margin-bottom: 40px;
+}
+
+.errorBtn:hover {
+    border: none;
+    border-radius: 15px;
+    width: 270px;
+    height: 45px;
+    background-color: #b0abe8;
+    margin-bottom: 40px;
+}
+
+.errorBtn:after {
+    border: none;
+    border-radius: 15px;
+    width: 270px;
+    height: 45px;
+    background-color: #a29dd4;
+    margin-bottom: 40px;
+}
+
+.textBtm {
+    font-size: 16px;
+    color: white;
+}
