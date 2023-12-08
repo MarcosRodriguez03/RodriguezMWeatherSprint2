@@ -20,6 +20,8 @@
 
 <body>
 
+
+
     <div class="container-fluid padding1" style="background-color: white;">
         <div class="row ">
             <div class="col d-flex align-items-center">
@@ -46,12 +48,12 @@
 
 
 
-    <div class="container-fluid padding mt-5">
+    <div class="container-fluid padding mt-4">
         <div class="row ">
             <div class="col me-2 currentDay">
                 <div class="row">
                     <div class="col-8">
-                        <p id="showLocation" class="locationFont mb-0">Stockton</p>
+                        <p id="showLocation" class="locationFont mb-0">STOCKTON</p>
                     </div>
                     <div class="col-4 d-flex justify-content-end align-items-center"><img id="showHeartIcon"
                             src="./assets/empty heart.png" style="height: 30px;" alt="heart icon">
@@ -67,7 +69,7 @@
                     </div>
 
                 </div>
-                <hr style="border-top: dotted 4px;" class="mx-4" />
+                <hr style="border-top: dotted 4px;" class="" />
                 <div class="row">
                     <div class="col">
                         <p id="showCurrentDesc" class="currentDayDescFont">Cloudy</p>
@@ -85,29 +87,29 @@
 
             </div>
             <div class="col currentDay ms-2">
-                <div class="row">
-                    <div class="col currentDayOfTheWeekFont">Today</div>
-                    <div class="col  ">
-                        <p id="showCurrentTime" class="currentDayOfTheWeekFont">12:55pm</p>
+                <div class="row mt-3">
+                    <div class="col currentDayOfTheWeekFont lh-1">TODAY</div>
+                    <div class="col currentDayOfTheWeekFont lh-1 " id="showCurrentTime">
+                        12:55pm
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col d-flex flex-column align-items-center">
                         <p class="eightAmFont">8am</p>
-                        <img src="./assets/sunpng.png" style="height: 75px;" alt="weather icon">
+                        <img src="./assets/sunpng.png" style="height: 75px; margin-top: 15px;" alt="weather icon">
                         <p class="eightAmWeatherFont">42°</p>
                     </div>
                     <div class="col d-flex flex-column align-items-center"
                         style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
 
                         <p class=" eightAmFont">noon</p>
-                        <img src="./assets/cloudypng.png" style="height: 75px;" alt="weather icon">
+                        <img src="./assets/cloudypng.png" style="height: 75px; margin-top: 15px;" alt="weather icon">
                         <p class="eightAmWeatherFont">58°</p>
 
                     </div>
                     <div class="col d-flex flex-column align-items-center">
                         <p class="eightAmFont">8pm</p>
-                        <img src="./assets/moon.png" style="height: 75px;" alt="weather icon">
+                        <img src="./assets/moon.png" style="height: 75px; margin-top: 15px;" alt="weather icon">
                         <p class="eightAmWeatherFont">46°</p>
                     </div>
                 </div>
@@ -115,88 +117,83 @@
         </div>
 
     </div>
-
+    <!-- fiveday forecast -->
     <div class="container-fluid padding mt-3">
         <div class="row">
-            <div class="col fiveDayForecast me-2 py-2">
+            <div id="forecastBtn1" style="background-color: rgba(255, 255, 255, 0.389);"
+                class="col fiveDayForecast me-2 py-2">
                 <span class="d-flex flex-row d-flex justify-content-center mt-2">
                     <p class="me-2 eightAmFont " id="showDay1">Mon</p>
                     <p class=" eightAmFont" id="showDate1">12/8</p>
                 </span>
                 <span class="d-flex justify-content-center mb-3">
-                    <img id="showWeatherIconDay1" src="./assets/cloudy png.png" style="width: 60px; height: auto;"
-                        alt="weather icon">
+                    <img class="imgAdjust" id="showWeatherIconDay1" src="./assets/cloudy png.png"
+                        style="width: 60px; height: auto;" alt="weather icon">
                 </span>
-
-
                 <span class=" d-flex flex-row d-flex justify-content-center">
                     <p style=" border-right:#454545 1px solid;" class="eightAmFont pe-1" id="showDay1High">74°F</p>
                     <p class="eightAmFont ps-1" id="showDay1Low">34°F</p>
                 </span>
             </div>
 
-            <div class="col fiveDayForecast me-2 ms-2 py-2">
+            <div id="forecastBtn2" style="background-color: rgba(255, 255, 255, 0.389);"
+                class="col fiveDayForecast me-2 ms-2 py-2">
                 <span class="d-flex flex-row d-flex justify-content-center mt-2">
                     <p class="me-2 eightAmFont " id="showDay2">Mon</p>
                     <p class=" eightAmFont" id="showDate2">12/8</p>
                 </span>
                 <span class="d-flex justify-content-center mb-3">
-                    <img id="showWeatherIconDay2" src="./assets/cloudy png.png" style="width: 60px; height: auto;"
-                        alt="weather icon">
+                    <img class="imgAdjust" id="showWeatherIconDay2" src="./assets/cloudy png.png"
+                        style="width: 60px; height: auto;" alt="weather icon">
                 </span>
-
-
                 <span class=" d-flex flex-row d-flex justify-content-center">
                     <p style=" border-right:#454545 1px solid;" class="eightAmFont pe-1" id="showDay2High">74°F</p>
                     <p class="eightAmFont ps-1" id="showDay2Low">34°F</p>
                 </span>
             </div>
 
-            <div class="col fiveDayForecast me-2 py-2 ms-2">
+            <div id="forecastBtn3" style="background-color: rgba(255, 255, 255, 0.389);"
+                class="col fiveDayForecast me-2 py-2 ms-2">
                 <span class="d-flex flex-row d-flex justify-content-center mt-2">
                     <p class="me-2 eightAmFont " id="showDay3">Mon</p>
                     <p class=" eightAmFont" id="showDate3">12/8</p>
                 </span>
                 <span class="d-flex justify-content-center mb-3">
-                    <img id="showWeatherIconDay3" src="./assets/cloudy png.png" style="width: 60px; height: auto;"
-                        alt="weather icon">
+                    <img class="imgAdjust" id="showWeatherIconDay3" src="./assets/cloudy png.png"
+                        style="width: 60px; height: auto;" alt="weather icon">
                 </span>
-
-
                 <span class=" d-flex flex-row d-flex justify-content-center">
                     <p style=" border-right:#454545 1px solid;" class="eightAmFont pe-1" id="showDay3High">74°F</p>
                     <p class="eightAmFont ps-1" id="showDay3Low">34°F</p>
                 </span>
             </div>
 
-            <div class="col fiveDayForecast me-2 ms-2 py-2">
+            <div id="forecastBtn4" style="background-color: rgba(255, 255, 255, 0.389);"
+                class="col fiveDayForecast me-2 ms-2 py-2">
                 <span class="d-flex flex-row d-flex justify-content-center mt-2">
                     <p class="me-2 eightAmFont " id="showDay4">Mon</p>
                     <p class=" eightAmFont" id="showDate4">12/8</p>
                 </span>
                 <span class="d-flex justify-content-center mb-3">
-                    <img id="showWeatherIconDay4" src="./assets/cloudy png.png" style="width: 60px; height: auto;"
-                        alt="weather icon">
+                    <img class="imgAdjust" id="showWeatherIconDay4" src="./assets/cloudy png.png"
+                        style="width: 60px; height: auto;" alt="weather icon">
                 </span>
-
-
                 <span class=" d-flex flex-row d-flex justify-content-center">
                     <p style=" border-right:#454545 1px solid;" class="eightAmFont pe-1" id="showDay4High">74°F</p>
                     <p class="eightAmFont ps-1" id="showDay4Low">34°F</p>
                 </span>
             </div>
 
-            <div class="col fiveDayForecast ms-2 py-2">
+            <div id="forecastBtn5" style="background-color: rgba(255, 255, 255, 0.389);"
+                class="col fiveDayForecast ms-2 py-2">
                 <span class="d-flex flex-row d-flex justify-content-center mt-2">
                     <p class="me-2 eightAmFont " id="showDay5">Mon</p>
                     <p class=" eightAmFont" id="showDate5">12/8</p>
                 </span>
                 <span class="d-flex justify-content-center mb-3">
-                    <img id="showWeatherIconDay5" src="./assets/cloudy png.png" style="width: 60px; height: auto;"
-                        alt="weather icon">
+                    <img class="imgAdjust" id="showWeatherIconDay5" src="./assets/cloudy png.png"
+                        style="width: 60px; height: auto;" alt="weather icon">
                 </span>
-
-
                 <span class=" d-flex flex-row d-flex justify-content-center">
                     <p style=" border-right:#454545 1px solid; " class="eightAmFont pe-1" id="showDay5High">74°F</p>
                     <p class="eightAmFont ps-1" id="showDay5Low">34°F</p>
@@ -212,14 +209,14 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <p>Try scrolling the rest of the page to see this option in action.</p>
-            <div style="background-color: wheat;">
+
+            <div>
 
                 <div id="injectFav">
 
-                    <div>
+                    <!-- <div>
                         <h1>test</h1>
-                    </div>
+                    </div> -->
                 </div>
 
 
@@ -232,16 +229,230 @@
 
 
 
-    <div class="d-flex justify-content-center mt-4">
+
+
+
+
+    <div style="display: none;" id="hideFirstInfo">
+        <div class="container-fluid padding mt-3 ">
+            <div class="row currentDay1">
+                <div class="col">
+                    <p id="showInfoDay1" class="locationFont mb-0">FRIDAY</p>
+                    <hr style="border-top: dotted 4px;" class="" />
+                    <p id="showDescDay1" class="locationFont1 mt-4">Cloudy with a chance of meatballs</p>
+                </div>
+                <!--  -->
+                <div class="col">
+                    <div class="row mt-4">
+                        <div class="col d-flex flex-column align-items-center">
+                            <p class="eightAmFont">8am</p>
+                            <img id="showIconDay18am" src="./assets/sunpng.png" style="height: 75px; margin-top: 15px;"
+                                alt="weather icon">
+                            <p id="showDay18amWeather" class="eightAmWeatherFont">42°</p>
+                        </div>
+                        <div class="col d-flex flex-column align-items-center"
+                            style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
+
+                            <p class=" eightAmFont">noon</p>
+                            <img id="showIconDay1Noon" src="./assets/cloudypng.png"
+                                style="height: 75px; margin-top: 15px;" alt="weather icon">
+                            <p id="showDay1NoonWeather" class="eightAmWeatherFont">58°</p>
+
+                        </div>
+                        <div class="col d-flex flex-column align-items-center">
+                            <p class="eightAmFont">8pm</p>
+                            <img id="showIconDay18pm" src="./assets/moon.png" style="height: 75px; margin-top: 15px; "
+                                alt="weather icon">
+                            <p id="showDay18pmWeather" class="eightAmWeatherFont">46°</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2 -->
+    <div style="display: none;" id="hide2Info">
+        <div class="container-fluid padding mt-3 ">
+            <div class="row currentDay1">
+                <div class="col">
+                    <p id="showInfoDay2" class="locationFont mb-0">FRIDAY</p>
+                    <hr style="border-top: dotted 4px;" class="" />
+                    <p id="showDescDay2" class="locationFont1 mt-4">Cloudy with a chance of meatballs</p>
+                </div>
+                <!--  -->
+                <div class="col">
+                    <div class="row mt-4">
+                        <div class="col d-flex flex-column align-items-center">
+                            <p class="eightAmFont">8am</p>
+                            <img id="showIconDay28am" src="./assets/sunpng.png" style="height: 75px; margin-top: 15px;"
+                                alt="weather icon">
+                            <p id="showDay28amWeather" class="eightAmWeatherFont">42°</p>
+                        </div>
+                        <div class="col d-flex flex-column align-items-center"
+                            style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
+
+                            <p class=" eightAmFont">noon</p>
+                            <img id="showIconDay2Noon" src="./assets/cloudypng.png"
+                                style="height: 75px; margin-top: 15px;" alt="weather icon">
+                            <p id="showDay2NoonWeather" class="eightAmWeatherFont">58°</p>
+
+                        </div>
+                        <div class="col d-flex flex-column align-items-center">
+                            <p class="eightAmFont">8pm</p>
+                            <img id="showIconDay28pm" src="./assets/moon.png" style="height: 75px; margin-top: 15px; "
+                                alt="weather icon">
+                            <p id="showDay28pmWeather" class="eightAmWeatherFont">46°</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3 -->
+    <div style="display: none;" id="hide3Info">
+        <div class="container-fluid padding mt-3 ">
+            <div class="row currentDay1">
+                <div class="col">
+                    <p id="showInfoDay3" class="locationFont mb-0">FRIDAY</p>
+                    <hr style="border-top: dotted 4px;" class="" />
+                    <p id="showDescDay3" class="locationFont1 mt-4">Cloudy with a chance of meatballs</p>
+                </div>
+                <!--  -->
+                <div class="col">
+                    <div class="row mt-4">
+                        <div class="col d-flex flex-column align-items-center">
+                            <p class="eightAmFont">8am</p>
+                            <img id="showIconDay38am" src="./assets/sunpng.png" style="height: 75px; margin-top: 15px;"
+                                alt="weather icon">
+                            <p id="showDay38amWeather" class="eightAmWeatherFont">43°</p>
+                        </div>
+                        <div class="col d-flex flex-column align-items-center"
+                            style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
+
+                            <p class=" eightAmFont">noon</p>
+                            <img id="showIconDay3Noon" src="./assets/cloudypng.png"
+                                style="height: 75px; margin-top: 15px;" alt="weather icon">
+                            <p id="showDay3NoonWeather" class="eightAmWeatherFont">58°</p>
+
+                        </div>
+                        <div class="col d-flex flex-column align-items-center">
+                            <p class="eightAmFont">8pm</p>
+                            <img id="showIconDay38pm" src="./assets/moon.png" style="height: 75px; margin-top: 15px; "
+                                alt="weather icon">
+                            <p id="showDay38pmWeather" class="eightAmWeatherFont">46°</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4 -->
+    <div style="display: none;" id="hide4Info">
+        <div class="container-fluid padding mt-3 ">
+            <div class="row currentDay1">
+                <div class="col">
+                    <p id="showInfoDay4" class="locationFont mb-0">FRIDAY</p>
+                    <hr style="border-top: dotted 4px;" class="" />
+                    <p id="showDescDay4" class="locationFont1 mt-4">Cloudy with a chance of meatballs</p>
+                </div>
+                <!--  -->
+                <div class="col">
+                    <div class="row mt-4">
+                        <div class="col d-flex flex-column align-items-center">
+                            <p class="eightAmFont">8am</p>
+                            <img id="showIconDay48am" src="./assets/sunpng.png" style="height: 75px; margin-top: 15px;"
+                                alt="weather icon">
+                            <p id="showDay48amWeather" class="eightAmWeatherFont">44°</p>
+                        </div>
+                        <div class="col d-flex flex-column align-items-center"
+                            style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
+
+                            <p class=" eightAmFont">noon</p>
+                            <img id="showIconDay4Noon" src="./assets/cloudypng.png"
+                                style="height: 75px; margin-top: 15px;" alt="weather icon">
+                            <p id="showDay4NoonWeather" class="eightAmWeatherFont">58°</p>
+
+                        </div>
+                        <div class="col d-flex flex-column align-items-center">
+                            <p class="eightAmFont">8pm</p>
+                            <img id="showIconDay48pm" src="./assets/moon.png" style="height: 75px; margin-top: 15px; "
+                                alt="weather icon">
+                            <p id="showDay48pmWeather" class="eightAmWeatherFont">46°</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5 -->
+    <div style="display: none;" id="hide5Info">
+        <div class="container-fluid padding mt-3 ">
+            <div class="row currentDay1">
+                <div class="col">
+                    <p id="showInfoDay5" class="locationFont mb-0">FRIDAY</p>
+                    <hr style="border-top: dotted 4px;" class="" />
+                    <p id="showDescDay5" class="locationFont1 mt-4">Cloudy with a chance of meatballs</p>
+                </div>
+                <!--  -->
+                <div class="col">
+                    <div class="row mt-4">
+                        <div class="col d-flex flex-column align-items-center">
+                            <p class="eightAmFont">8am</p>
+                            <img id="showIconDay58am" src="./assets/sunpng.png" style="height: 75px; margin-top: 15px;"
+                                alt="weather icon">
+                            <p id="showDay58amWeather" class="eightAmWeatherFont">45°</p>
+                        </div>
+                        <div class="col d-flex flex-column align-items-center"
+                            style="border-left: dotted #D5D5D5 4px; border-right: dotted #D5D5D5 4px;">
+
+                            <p class=" eightAmFont">noon</p>
+                            <img id="showIconDay5Noon" src="./assets/cloudypng.png"
+                                style="height: 75px; margin-top: 15px;" alt="weather icon">
+                            <p id="showDay5NoonWeather" class="eightAmWeatherFont">58°</p>
+
+                        </div>
+                        <div class="col d-flex flex-column align-items-center">
+                            <p class="eightAmFont">8pm</p>
+                            <img id="showIconDay58pm" src="./assets/moon.png" style="height: 75px; margin-top: 15px; "
+                                alt="weather icon">
+                            <p id="showDay58pmWeather" class="eightAmWeatherFont">46°</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <img src="./assets/x.png" alt=""> -->
+
+    <div class="d-flex justify-content-center mt-4 ">
         <button class=" favBtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
             aria-controls="offcanvasScrolling">
-            <p>Open Your Favorite Places</p>
 
-
-
+            <div class=" d-flex flex-row justify-content-center align-items-center">
+                <img src="./assets/Full heart.png" style="width: 25px; height: 25px;" alt="heart">
+                <p>Open Your Favorite Places</p>
+            </div>
 
         </button>
     </div>
+
+
+
+
+
+
+
+    <img class="background-img" src="./assets/bestSunBg.png" alt="">
 
 
 

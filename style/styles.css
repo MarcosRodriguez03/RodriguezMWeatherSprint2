@@ -1,10 +1,13 @@
 body {
 
-    background-image: linear-gradient(50deg, #98DDFC, #C8B1EB, #4A5EEF);
+    background-image: linear-gradient(90deg, #98DDFC, #C8B1EB, #4A5EEF);
 
 
     height: 1080px;
     width: 1920px;
+
+    max-height: 100vh;
+    max-width: 1920px;
 
 }
 
@@ -40,13 +43,13 @@ body {
 
 
 .padding {
-    padding-left: 400px;
-    padding-right: 400px;
+    padding-left: 420px;
+    padding-right: 420px;
 }
 
 .padding1 {
-    padding-left: 385px;
-    padding-right: 385px;
+    padding-left: 405px;
+    padding-right: 405px;
 }
 
 .navFont {
@@ -57,14 +60,15 @@ body {
 
 .locationFont {
     color: #454545;
-    font-size: 45px;
+    font-size: 36px;
     font-family: 'Roboto', sans-serif;
+    letter-spacing: 5px;
 }
 
 .currentDay {
     background-color: white;
     border-radius: 20px;
-    padding: 10px 30px;
+    padding: 20px 30px;
 }
 
 
@@ -82,25 +86,29 @@ body {
 }
 
 .currentDayOfTheWeekFont {
-    font-size: 40px;
+    font-size: 30px;
     color: #454545;
     font-family: 'Roboto', sans-serif;
+    letter-spacing: 5px;
 }
 
 .eightAmFont {
     font-size: 25px;
     color: #454545;
     font-family: 'Roboto', sans-serif;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
 }
 
 .eightAmWeatherFont {
-    font-size: 70px;
+    font-size: 50px;
     color: #454545;
     font-family: 'Philosopher', sans-serif;
 }
 
 .fiveDayForecast {
-    background-color: rgba(255, 255, 255, 0.389);
+
     border-radius: 20px;
 
 }
@@ -109,6 +117,7 @@ body {
     background-color: rgba(255, 255, 255, 0.657);
     border-radius: 15px;
     width: 555px;
+    height: 65px;
     border: none;
 }
 
@@ -123,6 +132,7 @@ body {
     background-color: rgba(255, 255, 255, 0.368);
     border-radius: 15px;
     width: 555px;
+
     border: none;
 }
 
@@ -135,19 +145,64 @@ body {
 }
 
 .offcanvas {
-    background-color: rgba(255, 255, 255, 0.735);
-    max-width: 370px;
+    background-color: rgba(255, 255, 255, 0.561);
+    max-width: 380px;
+
 }
 
 .createdDivTag {
-    color: black;
+    background-color: white;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .createdPTag {
-    color: black;
+    color: #707070;
     width: fit-content;
+    font-size: 25px;
+    margin: 0;
+}
+
+.createColTag {
+    display: flex;
+    align-items: center;
+
 }
 
 .createdImg {
-    width: 50px;
+    width: 15px;
+}
+
+.imgAdjust {
+    margin-top: 15px;
+}
+
+
+.background-img {
+    position: absolute;
+
+    top: 230px;
+    left: 0;
+    width: auto;
+    height: 850px;
+    z-index: -1;
+}
+
+.currentDay1 {
+    background-color: rgba(255, 255, 255, 0.623);
+
+    border-radius: 20px;
+    padding: 20px 45px;
+}
+
+.locationFont1 {
+    color: #454545;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 5px;
+    letter-spacing: normal;
+
 }

@@ -45,9 +45,324 @@ let showWeatherIconDay3 = document.getElementById("showWeatherIconDay3");
 let showWeatherIconDay4 = document.getElementById("showWeatherIconDay4");
 let showWeatherIconDay5 = document.getElementById("showWeatherIconDay5");
 
+//-------
+
+let showInfoDay1 = document.getElementById("showInfoDay1");
+
+let showDescDay1 = document.getElementById("showDescDay1");
+
+let showIconDay18am = document.getElementById("showIconDay18am");
+
+let showDay18amWeather = document.getElementById("showDay18amWeather");
+
+let showIconDay1Noon = document.getElementById("showIconDay1Noon");
+
+let showDay1NoonWeather = document.getElementById("showDay1NoonWeather");
+
+let showIconDay18pm = document.getElementById("showIconDay18pm");
+
+let showDay18pmWeather = document.getElementById("showDay18pmWeather");
+
+
+
+
+
+let showInfoDay2 = document.getElementById("showInfoDay2");
+
+let showDescDay2 = document.getElementById("showDescDay2");
+
+let showIconDay28am = document.getElementById("showIconDay28am");
+
+let showDay28amWeather = document.getElementById("showDay28amWeather");
+
+let showIconDay2Noon = document.getElementById("showIconDay2Noon");
+
+let showDay2NoonWeather = document.getElementById("showDay2NoonWeather");
+
+let showIconDay28pm = document.getElementById("showIconDay28pm");
+
+let showDay28pmWeather = document.getElementById("showDay28pmWeather");
+
+
+
+
+
+let showInfoDay3 = document.getElementById("showInfoDay3");
+
+let showDescDay3 = document.getElementById("showDescDay3");
+
+let showIconDay38am = document.getElementById("showIconDay38am");
+
+let showDay38amWeather = document.getElementById("showDay38amWeather");
+
+let showIconDay3Noon = document.getElementById("showIconDay3Noon");
+
+let showDay3NoonWeather = document.getElementById("showDay3NoonWeather");
+
+let showIconDay38pm = document.getElementById("showIconDay38pm");
+
+let showDay38pmWeather = document.getElementById("showDay38pmWeather");
+
+
+
+
+
+let showInfoDay4 = document.getElementById("showInfoDay4");
+
+let showDescDay4 = document.getElementById("showDescDay4");
+
+let showIconDay48am = document.getElementById("showIconDay48am");
+
+let showDay48amWeather = document.getElementById("showDay48amWeather");
+
+let showIconDay4Noon = document.getElementById("showIconDay4Noon");
+
+let showDay4NoonWeather = document.getElementById("showDay4NoonWeather");
+
+let showIconDay48pm = document.getElementById("showIconDay48pm");
+
+let showDay48pmWeather = document.getElementById("showDay48pmWeather");
+
+
+
+
+
+let showInfoDay5 = document.getElementById("showInfoDay5");
+
+let showDescDay5 = document.getElementById("showDescDay5");
+
+let showIconDay58am = document.getElementById("showIconDay58am");
+
+let showDay58amWeather = document.getElementById("showDay58amWeather");
+
+let showIconDay5Noon = document.getElementById("showIconDay5Noon");
+
+let showDay5NoonWeather = document.getElementById("showDay5NoonWeather");
+
+let showIconDay58pm = document.getElementById("showIconDay58pm");
+
+let showDay58pmWeather = document.getElementById("showDay58pmWeather");
+
+// ------
+
+let forecastBtn1 = document.getElementById("forecastBtn1")
+let hideFirstInfo = document.getElementById("hideFirstInfo")
+
+forecastBtn1.addEventListener('click', function () {
+    if (hideFirstInfo.style.display === "none") {
+        hideFirstInfo.style.display = "block"
+        forecastBtn1.style = " background-color: rgba(255, 255, 255, 0.623)"
+
+        hide2Info.style.display = "none"
+        forecastBtn2.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide3Info.style.display = "none"
+        forecastBtn3.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide4Info.style.display = "none"
+        forecastBtn4.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide5Info.style.display = "none"
+        forecastBtn5.style = "background-color: rgba(255, 255, 255, 0.389)"
+    } else {
+        forecastBtn1.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hideFirstInfo.style.display = "none"
+
+    }
+})
+
+let forecastBtn2 = document.getElementById("forecastBtn2")
+let hide2Info = document.getElementById("hide2Info")
+
+forecastBtn2.addEventListener('click', function () {
+    if (hide2Info.style.display === "none") {
+        hide2Info.style.display = "block"
+        forecastBtn2.style = " background-color: rgba(255, 255, 255, 0.623)"
+
+        hideFirstInfo.style.display = "none"
+        forecastBtn1.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide3Info.style.display = "none"
+        forecastBtn3.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide4Info.style.display = "none"
+        forecastBtn4.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide5Info.style.display = "none"
+        forecastBtn5.style = "background-color: rgba(255, 255, 255, 0.389)"
+    } else {
+        forecastBtn2.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide2Info.style.display = "none"
+    }
+})
+
+let forecastBtn3 = document.getElementById("forecastBtn3")
+let hide3Info = document.getElementById("hide3Info")
+
+forecastBtn3.addEventListener('click', function () {
+    if (hide3Info.style.display === "none") {
+        hide3Info.style.display = "block"
+        forecastBtn3.style = " background-color: rgba(255, 255, 255, 0.623)"
+
+        hideFirstInfo.style.display = "none"
+        forecastBtn1.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide2Info.style.display = "none"
+        forecastBtn2.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide4Info.style.display = "none"
+        forecastBtn4.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide5Info.style.display = "none"
+        forecastBtn5.style = "background-color: rgba(255, 255, 255, 0.389)"
+    } else {
+        forecastBtn3.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide3Info.style.display = "none"
+    }
+})
+
+let forecastBtn4 = document.getElementById("forecastBtn4")
+let hide4Info = document.getElementById("hide4Info")
+
+forecastBtn4.addEventListener('click', function () {
+    if (hide4Info.style.display === "none") {
+        hide4Info.style.display = "block"
+        forecastBtn4.style = " background-color: rgba(255, 255, 255, 0.623)"
+
+        hideFirstInfo.style.display = "none"
+        forecastBtn1.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide3Info.style.display = "none"
+        forecastBtn3.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide2Info.style.display = "none"
+        forecastBtn2.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide5Info.style.display = "none"
+        forecastBtn5.style = "background-color: rgba(255, 255, 255, 0.389)"
+    } else {
+        forecastBtn4.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide4Info.style.display = "none"
+    }
+})
+
+let forecastBtn5 = document.getElementById("forecastBtn5")
+let hide5Info = document.getElementById("hide5Info")
+
+forecastBtn5.addEventListener('click', function () {
+    if (hide5Info.style.display === "none") {
+        hide5Info.style.display = "block"
+        forecastBtn5.style = " background-color: rgba(255, 255, 255, 0.623)"
+
+        hideFirstInfo.style.display = "none"
+        forecastBtn1.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide3Info.style.display = "none"
+        forecastBtn3.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide4Info.style.display = "none"
+        forecastBtn4.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide2Info.style.display = "none"
+        forecastBtn2.style = "background-color: rgba(255, 255, 255, 0.389)"
+    } else {
+        forecastBtn5.style = "background-color: rgba(255, 255, 255, 0.389)"
+        hide5Info.style.display = "none"
+    }
+})
+
+//------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let favoriteArray = [];
+
+if (localStorage.getItem("favorites")) {
+    favoriteArray = JSON.parse(localStorage.getItem('favorites'));
+    console.log(favoriteArray)
+
+    for (let i = 0; i < favoriteArray.length; i++) {
+        let div1 = document.createElement('div')
+        div1.className = "col-10 createColTag"
+        //----
+        div1.addEventListener('click', function () {
+            console.log('clicked me yes')
+            CurrentDay(favoriteArray[i])
+            FiveDayForecast(favoriteArray[i])
+            console.log(favoriteArray)
+
+
+        })
+        //----
+        let p = document.createElement("p")
+        p.innerText = favoriteArray[i]
+        p.className = "createdPTag"
+        div1.appendChild(p)
+
+        let div2 = document.createElement('div')
+        div2.className = "col-1 createColTag"
+        let img = document.createElement('img')
+        img.src = "./assets/x.png"
+        img.className = "createdImg"
+        //--
+        img.addEventListener('click', function () {
+            console.log("yes i work")
+            let arrayIndex = favoriteArray.indexOf(favoriteArray[i])
+            console.log(arrayIndex)
+            favoriteArray.splice(arrayIndex, 1)
+            console.log(favoriteArray)
+
+
+            localStorage.setItem('favorites', JSON.stringify(favoriteArray))
+            injectFav.removeChild(div3)
+
+        })
+        //--
+        div2.appendChild(img)
+
+        let div3 = document.createElement('div')
+        div3.className = "container createdDivTag"
+
+        let divRow = document.createElement('div')
+        divRow.className = "row"
+
+        divRow.appendChild(div1)
+        divRow.appendChild(div2)
+
+        div3.appendChild(divRow)
+
+
+        injectFav.appendChild(div3)
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 showHeartIcon.addEventListener('click', function () {
@@ -69,23 +384,48 @@ function addToFavorite() {
         console.log(favoriteArray)
     } else {
         favoriteArray.push(favoriteInput);
+        localStorage.setItem('favorites', JSON.stringify(favoriteArray))
 
         let div1 = document.createElement('div')
-        div1.className = "col-10"
+        div1.className = "col-10 createColTag"
+        //----
+        div1.addEventListener('click', function () {
+            console.log('clicked me yes')
+            CurrentDay(favoriteInput)
+            FiveDayForecast(favoriteInput)
+            console.log(favoriteArray)
+
+
+        })
+        //----
         let p = document.createElement("p")
         p.innerText = favoriteInput
         p.className = "createdPTag"
-        div1.appendChild(p)//-------
+        div1.appendChild(p)
 
         let div2 = document.createElement('div')
-        div2.className = "col-2"
+        div2.className = "col-1 createColTag"
         let img = document.createElement('img')
-        img.src = "./assets/sunpng.png"
+        img.src = "./assets/x.png"
         img.className = "createdImg"
+        //--
+        img.addEventListener('click', function () {
+            console.log("yes i work")
+            let arrayIndex = favoriteArray.indexOf(favoriteInput)
+            console.log(arrayIndex)
+            favoriteArray.splice(arrayIndex, 1)
+            console.log(favoriteArray)
+
+
+            localStorage.setItem('favorites', JSON.stringify(favoriteArray))
+            injectFav.removeChild(div3)
+
+        })
+        //--
         div2.appendChild(img)
 
         let div3 = document.createElement('div')
-        div3.className = "container"
+        div3.className = "container createdDivTag"
 
         let divRow = document.createElement('div')
         divRow.className = "row"
@@ -177,6 +517,11 @@ async function GeolocationCheck(latitude, longitude) {
 
     CurrentDay(data[0].local_names.en)
     FiveDayForecast(data[0].local_names.en)
+    if (favoriteArray.includes(data[0].local_names.en.toLowerCase())) {
+        showHeartIcon.src = "./assets/full heart.png";
+    } else {
+        showHeartIcon.src = "./assets/empty heart.png";
+    }
 
 }
 
@@ -188,8 +533,18 @@ async function GeolocationCheck(latitude, longitude) {
 function GetLocation() {
     let location = userInput.value.toLowerCase();
 
+
     CurrentDay(location)
     FiveDayForecast(location)
+    userInput.value = ""
+
+    if (favoriteArray.includes(location)) {
+        showHeartIcon.src = "./assets/full heart.png";
+    } else {
+        showHeartIcon.src = "./assets/empty heart.png";
+    }
+
+
 }
 
 async function CurrentDay(theCheck) {
@@ -201,7 +556,7 @@ async function CurrentDay(theCheck) {
     } else {
 
         console.log(data)
-        showlocation.innerText = data.name;
+        showlocation.innerText = data.name.toUpperCase();
         showCurrentTemp.innerText = Math.round(data.main.temp) + "°F";
         showCurrentHigh.innerText = Math.round(data.main.temp_max) + "°F";
         showCurrentLow.innerText = Math.round(data.main.temp_min) + "°F";
@@ -241,6 +596,76 @@ async function FiveDayForecast(theCheck) {
     console.log(iteration + 'true')
 
 
+
+
+    showInfoDay1.innerText = NumberToDayInfo(new Date(data.list[iteration].dt * 1000).getDay());
+    showDescDay1.innerText = data.list[iteration].weather[0].description
+    WeatherStatCheck(data.list[iteration + 2].weather[0].main, showIconDay18am);
+    showDay18amWeather.innerText = Math.round(data.list[iteration + 2].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 4].weather[0].main, showIconDay1Noon)
+    showDay1NoonWeather.innerText = Math.round(data.list[iteration + 4].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 6].weather[0].main, showIconDay18pm)
+    showDay18pmWeather.innerText = Math.round(data.list[iteration + 6].main.temp) + "°";
+
+
+    showInfoDay2.innerText = NumberToDayInfo(new Date(data.list[iteration + 8].dt * 1000).getDay());
+    showDescDay2.innerText = data.list[iteration + 8].weather[0].description
+    WeatherStatCheck(data.list[iteration + 8 + 2].weather[0].main, showIconDay28am);
+    showDay28amWeather.innerText = Math.round(data.list[iteration + 8 + 2].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 8 + 4].weather[0].main, showIconDay2Noon)
+    showDay2NoonWeather.innerText = Math.round(data.list[iteration + 8 + 4].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 8 + 6].weather[0].main, showIconDay28pm)
+    showDay28pmWeather.innerText = Math.round(data.list[iteration + 8 + 6].main.temp) + "°";
+
+
+    showInfoDay3.innerText = NumberToDayInfo(new Date(data.list[iteration + 16].dt * 1000).getDay());
+    showDescDay3.innerText = data.list[iteration + 16].weather[0].description
+    WeatherStatCheck(data.list[iteration + 16 + 2].weather[0].main, showIconDay38am);
+    showDay38amWeather.innerText = Math.round(data.list[iteration + 16 + 2].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 16 + 4].weather[0].main, showIconDay3Noon)
+    showDay3NoonWeather.innerText = Math.round(data.list[iteration + 16 + 4].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 16 + 6].weather[0].main, showIconDay38pm)
+    showDay38pmWeather.innerText = Math.round(data.list[iteration + 16 + 6].main.temp) + "°";
+
+
+    showInfoDay4.innerText = NumberToDayInfo(new Date(data.list[iteration + 24].dt * 1000).getDay());
+    showDescDay4.innerText = data.list[iteration + 24].weather[0].description
+    WeatherStatCheck(data.list[iteration + 24 + 2].weather[0].main, showIconDay48am);
+    showDay48amWeather.innerText = Math.round(data.list[iteration + 24 + 2].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 24 + 4].weather[0].main, showIconDay4Noon)
+    showDay4NoonWeather.innerText = Math.round(data.list[iteration + 24 + 4].main.temp) + "°";
+    WeatherStatCheck(data.list[iteration + 24 + 6].weather[0].main, showIconDay48pm)
+    showDay48pmWeather.innerText = Math.round(data.list[iteration + 24 + 6].main.temp) + "°";
+
+
+    if (iteration + 32 + 6 > 39) {
+        showInfoDay5.innerText = NumberToDayInfo(new Date(data.list[39].dt * 1000).getDay());
+        showDescDay5.innerText = data.list[39].weather[0].description
+        WeatherStatCheck(data.list[39].weather[0].main, showIconDay58am);
+        showDay58amWeather.innerText = Math.round(data.list[39].main.temp) + "°";
+        WeatherStatCheck(data.list[39].weather[0].main, showIconDay5Noon)
+        showDay5NoonWeather.innerText = Math.round(data.list[39].main.temp) + "°";
+        WeatherStatCheck(data.list[39].weather[0].main, showIconDay58pm)
+        showDay58pmWeather.innerText = Math.round(data.list[39].main.temp) + "°";
+    } else {
+        showInfoDay5.innerText = NumberToDayInfo(new Date(data.list[iteration + 32].dt * 1000).getDay());
+        showDescDay5.innerText = data.list[iteration + 32].weather[0].description
+        WeatherStatCheck(data.list[iteration + 32 + 2].weather[0].main, showIconDay58am);
+        showDay58amWeather.innerText = Math.round(data.list[iteration + 32 + 2].main.temp) + "°";
+        WeatherStatCheck(data.list[iteration + 32 + 4].weather[0].main, showIconDay5Noon)
+        showDay5NoonWeather.innerText = Math.round(data.list[iteration + 32 + 4].main.temp) + "°";
+        WeatherStatCheck(data.list[iteration + 32 + 6].weather[0].main, showIconDay58pm)
+        showDay58pmWeather.innerText = Math.round(data.list[iteration + 32 + 6].main.temp) + "°";
+    }
+
+
+
+
+
+
+
+
+    //------------------------------------------------------------------------------
     let tempDayNumber1 = new Date(data.list[iteration].dt * 1000).getDay();
     showDay1.innerText = NumberToDay(tempDayNumber1);
     let dayDay1 = new Date(data.list[iteration].dt * 1000).getDate();
@@ -292,17 +717,25 @@ async function FiveDayForecast(theCheck) {
     WeatherStatCheck(day4status, showWeatherIconDay4);
 
 
-    let tempDayNumber5 = new Date(data.list[iteration + 32].dt * 1000).getDay();
-    showDay5.innerText = NumberToDay(tempDayNumber5);
-    let dayDay5 = new Date(data.list[iteration + 32].dt * 1000).getDate();
-    let dayMonth5 = new Date(data.list[iteration + 32].dt * 1000).getMonth() + 1;
+    let tempDayNumber5 = new Date(data.list[iteration + 24].dt * 1000).getDay();
+    showDay5.innerText = NumberToDay(tempDayNumber5 + 1);
+    let dayDay5 = new Date(data.list[iteration + 31].dt * 1000).getDate();
+    let dayMonth5 = new Date(data.list[iteration + 31].dt * 1000).getMonth() + 1;
 
+    if (iteration + 32 > 39) {
+        showDate5.innerText = dayMonth5 + "/" + (Number(dayDay5) + 1);
+        showDay5High.innerText = Math.round(FindHighLastCase(31)) + "°F"
+        showDay5Low.innerText = Math.round(FindLowLastCase(31)) + "°F"
+        let day5status = data.list[iteration + 31].weather[0].main; // this holds clouds for change icon
+        WeatherStatCheck(day5status, showWeatherIconDay5)
+    } else {
+        showDate5.innerText = dayMonth5 + "/" + dayDay5;
+        showDay5High.innerText = Math.round(FindHighLastCase(32)) + "°F"
+        showDay5Low.innerText = Math.round(FindLowLastCase(32)) + "°F"
+        let day5status = data.list[iteration + 32].weather[0].main; // this holds clouds for change icon
+        WeatherStatCheck(day5status, showWeatherIconDay5)
+    }
 
-    showDate5.innerText = dayMonth5 + "/" + dayDay5;
-    showDay5High.innerText = Math.round(FindHighLastCase(32)) + "°F"
-    showDay5Low.innerText = Math.round(FindLowLastCase(32)) + "°F"
-    let day5status = data.list[iteration + 32].weather[0].main; // this holds clouds for change icon
-    WeatherStatCheck(day5status, showWeatherIconDay5)
 
     function FindHigh(add) {
         let highTemp;
@@ -374,19 +807,36 @@ function WeatherStatCheck(weatherMain, show) {
 
 function NumberToDay(number) {
     if (number === 0) {
-        return 'Sun';
+        return 'SUN';
     } else if (number === 1) {
-        return 'Mon';
+        return 'MON';
     } else if (number === 2) {
-        return 'Tue';
+        return 'TUE';
     } else if (number === 3) {
-        return 'Wed';
+        return 'WED';
     } else if (number === 4) {
-        return 'Thu';
+        return 'THU';
     } else if (number === 5) {
-        return 'Fri';
+        return 'FRI';
     } else if (number === 6) {
-        return 'Sat';
+        return 'SAT';
+    }
+}
+function NumberToDayInfo(number) {
+    if (number === 0) {
+        return 'SUNDAY';
+    } else if (number === 1) {
+        return 'MONDAY';
+    } else if (number === 2) {
+        return 'TUESDAY';
+    } else if (number === 3) {
+        return 'WEDNESDAY';
+    } else if (number === 4) {
+        return 'THURSDAY';
+    } else if (number === 5) {
+        return 'FRIDAY';
+    } else if (number === 6) {
+        return 'SATURDAY';
     }
 }
 
