@@ -1,5 +1,6 @@
 -Marcos Rodriguez
 -12/8/2023
+-Weather Sprint
 - I finsihed everything I could in the time frame I beleive the functionality is all there. I tried to implement things in the peer review but ran out of time. the only thing im missing is a complete night time mode and some minor styling. 
 
 
