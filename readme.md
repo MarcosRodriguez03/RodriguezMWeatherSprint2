@@ -1,16 +1,8 @@
 -Marcos Rodriguez
--12/7/2023
--found a side bar option on bootstrap
--got the highs and lows for the 5 day forcast
--got the time for our time zone at least
--search bar now works
+-12/8/2023
+- I finsihed everything I could in the time frame I beleive the functionality is all there. I tried to implement things in the peer review but ran out of time. the only thing im missing is a complete night time mode and some minor styling. 
 
-tmrw i want to display the days of the week
-maybe get day then select the first 3 indexes of the word 
 
-get the date too 
-
-maybe change icons depending on the description
 
 - Peer Review ~ Tyler Nguyen (1:53PM-PST 12-8-2023)
   Nitpicks - Current time text has too much margin right and the font color is darker than the Figma.

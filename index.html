@@ -18,11 +18,11 @@
 
 </head>
 
-<body>
+<body id="bodyId" class="dayBody">
 
 
 
-    <div class="container-fluid padding1" style="background-color: white;">
+    <div class="container-fluid padding1" id="navbar1" style="background-color: white;">
         <div class="row ">
             <div class="col d-flex align-items-center">
                 <p class="navFont">climate.xchange</p>
@@ -50,7 +50,7 @@
 
     <div class="container-fluid padding mt-4">
         <div class="row ">
-            <div class="col me-2 currentDay">
+            <div class="col me-2 currentDay" id="changeMe1">
                 <div class="row">
                     <div class="col-8">
                         <p id="showLocation" class="locationFont mb-0">STOCKTON</p>
@@ -86,7 +86,7 @@
                 </div>
 
             </div>
-            <div class="col currentDay ms-2">
+            <div class="col  ms-2 currentDay" id="changeMe2">
                 <div class="row mt-3">
                     <div class="col currentDayOfTheWeekFont lh-1">TODAY</div>
                     <div class="col currentDayOfTheWeekFont lh-1 " id="showCurrentTime">
@@ -473,12 +473,22 @@
         <p class="text-center textBtm mt-4">tempurature view: Celsius (click to change)</p>
     </div>
 
+    <p id="btnNight" class="text-center textBtm mt-4">day/night mode (click to change)</p>
 
 
 
+    <div id="dayModeBg" style="display: block;">
+        <img class="background-img" src="./assets/bestSunBg.png" alt="sun">
+    </div>
 
 
-    <img class="background-img" src="./assets/bestSunBg.png" alt="">
+
+    <div id="nightModeBg" style="display: none;">
+        <img class="nightBackgroundImg" src="./assets/moonBG.png" alt="moon">
+    </div>
+
+
+
 
 
 

@@ -16,7 +16,71 @@ let hideBtmTextC = document.getElementById("hideBtmTextC")
 
 let show8am = document.getElementById("show8am")
 let showNoon = document.getElementById("showNoon")
-let show8pm = document.getElementById("show8pm")
+let navbar1 = document.getElementById("navbar1")
+let changeMe1 = document.getElementById("changeMe1")
+let changeMe2 = document.getElementById("changeMe2")
+
+
+
+let btnNight = document.getElementById("btnNight")
+let btnDay = document.getElementById("btnDay")
+let nightModeBg = document.getElementById("nightModeBg")
+let dayModeBg = document.getElementById("dayModeBg")
+let bodyId = document.getElementById("bodyId")
+let navFont = document.querySelector(".navFont")
+
+btnNight.addEventListener('click', function () {
+
+    if (dayModeBg.style.display === "block") {
+        dayModeBg.style.display = "none"
+        nightModeBg.style.display = "block"
+        bodyId.className = "nightBody"
+        navbar1.style.backgroundColor = "#2F2F2F"
+        navFont.style.color = "white"
+        changeMe1.className = "col me-2 currentDayNight "
+        changeMe2.className = "col ms-2 currentDayNight "
+
+
+
+    } else {
+        dayModeBg.style.display = "block"
+        nightModeBg.style.display = "none"
+        bodyId.className = "dayBody"
+        bodyId.className = "dayBody"
+        navbar1.style.backgroundColor = "white"
+        navFont.style.color = "#707070"
+        changeMe1.className = "col me-2 currentDay "
+        changeMe2.className = "col ms-2 currentDay "
+
+
+    }
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -405,6 +469,7 @@ function addToFavorite() {
         console.log(favoriteArray)
 
         let arrayIndex = favoriteArray.indexOf(favoriteInput)
+
         console.log(arrayIndex)
         favoriteArray.splice(arrayIndex, 1)
         console.log(favoriteArray)
